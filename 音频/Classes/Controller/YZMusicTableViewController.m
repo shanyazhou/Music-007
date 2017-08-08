@@ -17,6 +17,7 @@
 @property (strong, nonatomic) NSArray *musics;
 @property (strong, nonatomic) CADisplayLink *link;
 @property (strong, nonatomic) AVAudioPlayer *currentPlayingAudioPlayer;
+- (IBAction)jump:(id)sender;
 @end
 
 @implementation YZMusicTableViewController
@@ -91,7 +92,6 @@
 {
     //播放音乐，播放的音乐来至模型
     YZMusic *music = self.musics[indexPath.row];
-    
     AVAudioPlayer *audioPlayer = [YZAudioTool playMusic:music.filename];
     audioPlayer.delegate = self;
     
@@ -135,6 +135,26 @@
 }
 
 #pragma mark: AVAudioPlayerDelegate
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
+{
+    //播放完毕后，自动播放下一行。
+    //1 取出当前行
+    NSIndexPath *currentPath = [self.tableView indexPathForSelectedRow];
+    //2 找出下一行
+    NSInteger nextMusicRow = currentPath.row + 1;
+    if(nextMusicRow >= self.musics.count)
+    {
+        nextMusicRow = 0;
+    }
+    
+    //点击下一行
+    NSIndexPath *nextPath = [NSIndexPath indexPathForRow:nextMusicRow inSection:currentPath.section];
+    //实现那个系统的灰色效果
+    [self.tableView selectRowAtIndexPath:nextPath animated:YES scrollPosition:UITableViewScrollPositionTop];
+    //这个只是执行了点击那一行里面的内容，并不能够实现那个灰色的效果
+    [self tableView:self.tableView didSelectRowAtIndexPath:nextPath];
+    
+}
 
 /**
  开始打断
@@ -152,5 +172,8 @@
 {
     //开始播放音乐
     [player play];
+}
+- (IBAction)jump:(id)sender {
+    self.currentPlayingAudioPlayer.currentTime = self.currentPlayingAudioPlayer.duration - 5;
 }
 @end

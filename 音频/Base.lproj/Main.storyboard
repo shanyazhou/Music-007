@@ -48,7 +48,13 @@
                             <outlet property="delegate" destination="bda-Ww-2T2" id="hfH-8a-vKE"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="音乐列表" id="VAX-ac-fd1"/>
+                    <navigationItem key="navigationItem" title="音乐列表" id="VAX-ac-fd1">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="xBl-wI-C7k">
+                            <connections>
+                                <action selector="jump:" destination="bda-Ww-2T2" id="TpP-uH-II0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ia-Lp-rdW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
