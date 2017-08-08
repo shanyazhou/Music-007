@@ -39,4 +39,6 @@
  歌曲的歌词
  */
 @property (copy, nonatomic) NSString *lrcname;
+
+@property (assign, nonatomic, getter=isPlaying) BOOL playing;
 @end

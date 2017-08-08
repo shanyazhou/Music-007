@@ -63,6 +63,8 @@
 		123D03361F3878F50091CB5B /* NSObject+MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 123D03231F3878F50091CB5B /* NSObject+MJProperty.m */; };
 		123D03371F3878F50091CB5B /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 123D03251F3878F50091CB5B /* NSString+MJExtension.m */; };
 		123D03381F3878F50091CB5B /* YZAudioTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 123D03281F3878F50091CB5B /* YZAudioTool.m */; };
+		1262045B1F39CEA50093AB0C /* YZMusicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1262045A1F39CEA50093AB0C /* YZMusicTableViewCell.m */; };
+		1262045E1F39D8CF0093AB0C /* UIImage+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 1262045D1F39D8CF0093AB0C /* UIImage+MJ.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -140,6 +142,10 @@
 		123D03251F3878F50091CB5B /* NSString+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MJExtension.m"; sourceTree = "<group>"; };
 		123D03271F3878F50091CB5B /* YZAudioTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZAudioTool.h; sourceTree = "<group>"; };
 		123D03281F3878F50091CB5B /* YZAudioTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZAudioTool.m; sourceTree = "<group>"; };
+		126204591F39CEA50093AB0C /* YZMusicTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZMusicTableViewCell.h; sourceTree = "<group>"; };
+		1262045A1F39CEA50093AB0C /* YZMusicTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZMusicTableViewCell.m; sourceTree = "<group>"; };
+		1262045C1F39D8CF0093AB0C /* UIImage+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MJ.h"; sourceTree = "<group>"; };
+		1262045D1F39D8CF0093AB0C /* UIImage+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MJ.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,9 +270,9 @@
 			children = (
 				123D03051F3878F50091CB5B /* Controller */,
 				123D030A1F3878F50091CB5B /* Model */,
+				126204581F39CE850093AB0C /* View */,
 				123D030D1F3878F50091CB5B /* Other */,
 				123D03261F3878F50091CB5B /* Tool */,
-				123D03291F3878F50091CB5B /* View */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -294,6 +300,8 @@
 		123D030D1F3878F50091CB5B /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				1262045C1F39D8CF0093AB0C /* UIImage+MJ.h */,
+				1262045D1F39D8CF0093AB0C /* UIImage+MJ.m */,
 				123D030E1F3878F50091CB5B /* AppDelegate.h */,
 				123D030F1F3878F50091CB5B /* AppDelegate.m */,
 				123D03101F3878F50091CB5B /* MJExtension */,
@@ -338,9 +346,11 @@
 			path = Tool;
 			sourceTree = "<group>";
 		};
-		123D03291F3878F50091CB5B /* View */ = {
+		126204581F39CE850093AB0C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				126204591F39CEA50093AB0C /* YZMusicTableViewCell.h */,
+				1262045A1F39CEA50093AB0C /* YZMusicTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -458,6 +468,7 @@
 				123D032F1F3878F50091CB5B /* MJFoundation.m in Sources */,
 				123D03351F3878F50091CB5B /* NSObject+MJKeyValue.m in Sources */,
 				123D032A1F3878F50091CB5B /* ViewController.m in Sources */,
+				1262045E1F39D8CF0093AB0C /* UIImage+MJ.m in Sources */,
 				123D03301F3878F50091CB5B /* MJProperty.m in Sources */,
 				123D03311F3878F50091CB5B /* MJPropertyKey.m in Sources */,
 				123D03321F3878F50091CB5B /* MJPropertyType.m in Sources */,
@@ -466,6 +477,7 @@
 				123D026B1F38341C0091CB5B /* main.m in Sources */,
 				123D03361F3878F50091CB5B /* NSObject+MJProperty.m in Sources */,
 				123D03381F3878F50091CB5B /* YZAudioTool.m in Sources */,
+				1262045B1F39CEA50093AB0C /* YZMusicTableViewCell.m in Sources */,
 				123D03341F3878F50091CB5B /* NSObject+MJCoding.m in Sources */,
 				123D032B1F3878F50091CB5B /* YZMusicTableViewController.m in Sources */,
 				123D032E1F3878F50091CB5B /* MJExtensionConst.m in Sources */,

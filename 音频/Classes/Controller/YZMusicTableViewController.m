@@ -12,6 +12,7 @@
 #import "YZMusic.h"
 #import "MJExtension.h"
 #import "YZAudioTool.h"
+#import "YZMusicTableViewCell.h"
 
 @interface YZMusicTableViewController ()<AVAudioPlayerDelegate>
 @property (strong, nonatomic) NSArray *musics;
@@ -49,8 +50,6 @@
 //一秒钟调用60次
 - (void)linkDoSomething
 {
-    NSLog(@"%f^^^%f",self.currentPlayingAudioPlayer.duration,self.currentPlayingAudioPlayer.currentTime);
-    
     //可以在这里调整歌词
 }
 
@@ -62,6 +61,13 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    YZMusicTableViewCell *cell = [YZMusicTableViewCell cellWithTableView:tableView];
+    
+    cell.music = self.musics[indexPath.row];
+    
+    return cell;
+    /**
     static NSString *ID = @"music";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     if(cell == nil)
@@ -75,6 +81,7 @@
     cell.imageView.image = [UIImage imageNamed:music.singerIcon];
     
     return cell;
+     */
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -86,6 +93,11 @@
 {
     YZMusic *music = self.musics[indexPath.row];
     [YZAudioTool stopMusic:music.filename];
+    
+    //再次调用模型
+    YZMusicTableViewCell *cell = (YZMusicTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+    music.playing = NO;
+    cell.music = music;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -104,6 +116,11 @@
     
     //显示锁屏信息
     [self showLockMusicInfo:music];
+    
+    //再次调用模型
+    YZMusicTableViewCell *cell = (YZMusicTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+    music.playing = YES;
+    cell.music = music;
 }
 
 - (void)showLockMusicInfo:(YZMusic *)music
@@ -154,6 +171,11 @@
     //这个只是执行了点击那一行里面的内容，并不能够实现那个灰色的效果
     [self tableView:self.tableView didSelectRowAtIndexPath:nextPath];
     
+    //再次调用模型
+    YZMusicTableViewCell *cell = (YZMusicTableViewCell *)[self.tableView cellForRowAtIndexPath:currentPath];
+    YZMusic *music = self.musics[currentPath.row];
+    music.playing = NO;
+    cell.music = music;
 }
 
 /**
