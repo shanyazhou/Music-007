@@ -63,8 +63,12 @@
 		123D03361F3878F50091CB5B /* NSObject+MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 123D03231F3878F50091CB5B /* NSObject+MJProperty.m */; };
 		123D03371F3878F50091CB5B /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 123D03251F3878F50091CB5B /* NSString+MJExtension.m */; };
 		123D03381F3878F50091CB5B /* YZAudioTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 123D03281F3878F50091CB5B /* YZAudioTool.m */; };
+<<<<<<< HEAD
 		1262045B1F39CEA50093AB0C /* YZMusicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1262045A1F39CEA50093AB0C /* YZMusicTableViewCell.m */; };
 		1262045E1F39D8CF0093AB0C /* UIImage+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 1262045D1F39D8CF0093AB0C /* UIImage+MJ.m */; };
+=======
+		12EFA6151F39BF0700CAA285 /* YZMusicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12EFA6141F39BF0700CAA285 /* YZMusicTableViewCell.m */; };
+>>>>>>> a9ddfa8921f642fc4a42be3d97469116397b69c3
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -142,10 +146,15 @@
 		123D03251F3878F50091CB5B /* NSString+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MJExtension.m"; sourceTree = "<group>"; };
 		123D03271F3878F50091CB5B /* YZAudioTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZAudioTool.h; sourceTree = "<group>"; };
 		123D03281F3878F50091CB5B /* YZAudioTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZAudioTool.m; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		126204591F39CEA50093AB0C /* YZMusicTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZMusicTableViewCell.h; sourceTree = "<group>"; };
 		1262045A1F39CEA50093AB0C /* YZMusicTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZMusicTableViewCell.m; sourceTree = "<group>"; };
 		1262045C1F39D8CF0093AB0C /* UIImage+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MJ.h"; sourceTree = "<group>"; };
 		1262045D1F39D8CF0093AB0C /* UIImage+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MJ.m"; sourceTree = "<group>"; };
+=======
+		12EFA6131F39BF0700CAA285 /* YZMusicTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZMusicTableViewCell.h; sourceTree = "<group>"; };
+		12EFA6141F39BF0700CAA285 /* YZMusicTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZMusicTableViewCell.m; sourceTree = "<group>"; };
+>>>>>>> a9ddfa8921f642fc4a42be3d97469116397b69c3
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -349,8 +358,13 @@
 		126204581F39CE850093AB0C /* View */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				126204591F39CEA50093AB0C /* YZMusicTableViewCell.h */,
 				1262045A1F39CEA50093AB0C /* YZMusicTableViewCell.m */,
+=======
+				12EFA6131F39BF0700CAA285 /* YZMusicTableViewCell.h */,
+				12EFA6141F39BF0700CAA285 /* YZMusicTableViewCell.m */,
+>>>>>>> a9ddfa8921f642fc4a42be3d97469116397b69c3
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -477,7 +491,11 @@
 				123D026B1F38341C0091CB5B /* main.m in Sources */,
 				123D03361F3878F50091CB5B /* NSObject+MJProperty.m in Sources */,
 				123D03381F3878F50091CB5B /* YZAudioTool.m in Sources */,
+<<<<<<< HEAD
 				1262045B1F39CEA50093AB0C /* YZMusicTableViewCell.m in Sources */,
+=======
+				12EFA6151F39BF0700CAA285 /* YZMusicTableViewCell.m in Sources */,
+>>>>>>> a9ddfa8921f642fc4a42be3d97469116397b69c3
 				123D03341F3878F50091CB5B /* NSObject+MJCoding.m in Sources */,
 				123D032B1F3878F50091CB5B /* YZMusicTableViewController.m in Sources */,
 				123D032E1F3878F50091CB5B /* MJExtensionConst.m in Sources */,
