@@ -60,13 +60,18 @@
     return 70;
 }
 
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    YZMusic *music = self.musics[indexPath.row];
+    [YZAudioTool stopMusic:music.filename];
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //播放音乐，播放的音乐来至模型
     YZMusic *music = self.musics[indexPath.row];
     
     [YZAudioTool playMusic:music.filename];
-    
 }
 
 @end

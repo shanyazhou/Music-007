@@ -36,6 +36,12 @@ static NSMutableDictionary *_audioPlayerDict;
     _soundIDDict = [NSMutableDictionary dictionary];
     
     _audioPlayerDict = [NSMutableDictionary dictionary];
+    
+    //设置音频会话类型
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    [session setCategory:AVAudioSessionCategoryPlayback error:nil];
+//    [session setMode:AVAudioSessionCategorySoloAmbient error:nil];//这个好像不管用了
+    [session setActive:YES error:nil];
 }
 
 + (void)playSound:(NSString *)filename
@@ -67,33 +73,53 @@ static NSMutableDictionary *_audioPlayerDict;
 }
 
 
+/************************************************************/
+
+
 + (void)playMusic:(NSString *)filename
 {
     if(!filename) return;
     
-    AVAudioPlayer * audioPlayer = _audioPlayerDict[filename];
+    AVAudioPlayer *audioPlayer = _audioPlayerDict[filename];
     
-    if(audioPlayer == nil)
+    if(!audioPlayer)
     {
         NSURL *url = [[NSBundle mainBundle] URLForResource:filename withExtension:nil];
         if(!url) return;
         audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+        
+        [audioPlayer prepareToPlay];
+        
         _audioPlayerDict[filename] = audioPlayer;
     }
     
-    [audioPlayer prepareToPlay];
-    [audioPlayer play];
+    if(!audioPlayer.isPlaying){
+        [audioPlayer play];
+    }
     
 }
 
 + (void)pauseMusic:(NSString *)filename
 {
-    
+    if(!filename) return;
+    AVAudioPlayer *audioPlayer = _audioPlayerDict[filename];
+    if(audioPlayer.isPlaying)
+    {
+        [audioPlayer pause];
+    }
 }
 
 + (void)stopMusic:(NSString *)filename
 {
-    
+    if(!filename) return;
+    AVAudioPlayer *audioPlayer = _audioPlayerDict[filename];
+//    if(audioPlayer)
+    if(audioPlayer.isPlaying)
+    {
+        [audioPlayer stop];
+        
+        [_audioPlayerDict removeObjectForKey:filename];
+    }
 }
 
 
