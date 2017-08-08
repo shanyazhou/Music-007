@@ -12,6 +12,7 @@
 #import "YZMusic.h"
 #import "MJExtension.h"
 #import "YZAudioTool.h"
+#import "YZMusicTableViewCell.h"
 
 @interface YZMusicTableViewController ()<AVAudioPlayerDelegate>
 @property (strong, nonatomic) NSArray *musics;
@@ -49,8 +50,6 @@
 //一秒钟调用60次
 - (void)linkDoSomething
 {
-    NSLog(@"%f^^^%f",self.currentPlayingAudioPlayer.duration,self.currentPlayingAudioPlayer.currentTime);
-    
     //可以在这里调整歌词
 }
 
@@ -62,17 +61,23 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *ID = @"music";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    if(cell == nil)
-    {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
-    }
+//    static NSString *ID = @"music";
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+//    if(cell == nil)
+//    {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
+//    }
+//    
+//    YZMusic *music = self.musics[indexPath.row];
+//    cell.textLabel.text = music.name;
+//    cell.detailTextLabel.text = music.singer;
+//    cell.imageView.image = [UIImage imageNamed:music.singerIcon];
+//    
+//    return cell;
     
-    YZMusic *music = self.musics[indexPath.row];
-    cell.textLabel.text = music.name;
-    cell.detailTextLabel.text = music.singer;
-    cell.imageView.image = [UIImage imageNamed:music.singerIcon];
+    YZMusicTableViewCell *cell = [YZMusicTableViewCell celllWithTableView:tableView];
+    
+    cell.music = self.musics[indexPath.row];
     
     return cell;
 }
