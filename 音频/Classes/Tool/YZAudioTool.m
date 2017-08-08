@@ -76,16 +76,16 @@ static NSMutableDictionary *_audioPlayerDict;
 /************************************************************/
 
 
-+ (void)playMusic:(NSString *)filename
++ (AVAudioPlayer *)playMusic:(NSString *)filename
 {
-    if(!filename) return;
+    if(!filename) return nil;
     
     AVAudioPlayer *audioPlayer = _audioPlayerDict[filename];
     
     if(!audioPlayer)
     {
         NSURL *url = [[NSBundle mainBundle] URLForResource:filename withExtension:nil];
-        if(!url) return;
+        if(!url) return nil;
         audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
         
         [audioPlayer prepareToPlay];
@@ -96,7 +96,7 @@ static NSMutableDictionary *_audioPlayerDict;
     if(!audioPlayer.isPlaying){
         [audioPlayer play];
     }
-    
+    return audioPlayer;
 }
 
 + (void)pauseMusic:(NSString *)filename
@@ -122,5 +122,18 @@ static NSMutableDictionary *_audioPlayerDict;
     }
 }
 
++ (AVAudioPlayer *)currentPlayingAudioPlayer
+{
+    //遍历字典数组
+    for (NSString *filename in _audioPlayerDict) {
+        AVAudioPlayer *audioPlayer = _audioPlayerDict[filename];
+        if(audioPlayer.isPlaying)
+        {
+            return audioPlayer;
+        }
+    }
+    
+    return nil;
+}
 
 @end

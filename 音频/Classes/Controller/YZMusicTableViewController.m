@@ -8,12 +8,15 @@
 
 #import "YZMusicTableViewController.h"
 #import <AVFoundation/AVFoundation.h>
+#import <MediaPlayer/MediaPlayer.h>
 #import "YZMusic.h"
 #import "MJExtension.h"
 #import "YZAudioTool.h"
 
-@interface YZMusicTableViewController ()
+@interface YZMusicTableViewController ()<AVAudioPlayerDelegate>
 @property (strong, nonatomic) NSArray *musics;
+@property (strong, nonatomic) CADisplayLink *link;
+@property (strong, nonatomic) AVAudioPlayer *currentPlayingAudioPlayer;
 @end
 
 @implementation YZMusicTableViewController
@@ -27,12 +30,30 @@
     return _musics;
 }
 
+- (CADisplayLink *)link
+{
+    if(!_link)
+    {
+        self.link = [CADisplayLink displayLinkWithTarget:self selector:@selector(linkDoSomething)];
+    }
+    return _link;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
 }
 
+//一秒钟调用60次
+- (void)linkDoSomething
+{
+    NSLog(@"%f^^^%f",self.currentPlayingAudioPlayer.duration,self.currentPlayingAudioPlayer.currentTime);
+    
+    //可以在这里调整歌词
+}
+
+#pragma mark: tableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.musics.count;
@@ -71,7 +92,65 @@
     //播放音乐，播放的音乐来至模型
     YZMusic *music = self.musics[indexPath.row];
     
-    [YZAudioTool playMusic:music.filename];
+    AVAudioPlayer *audioPlayer = [YZAudioTool playMusic:music.filename];
+    audioPlayer.delegate = self;
+    
+    self.currentPlayingAudioPlayer = audioPlayer;
+    
+    //开启定时器，监听音乐播放进度，以及正在播放的音乐的其他信息
+    [self.link invalidate];
+    self.link = nil;
+    [self.link addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    
+    //显示锁屏信息
+    [self showLockMusicInfo:music];
 }
 
+- (void)showLockMusicInfo:(YZMusic *)music
+{
+    //如果有这个类，则走下面的方法，如果没有这个类，不走。
+    if(NSClassFromString(@"MPNowPlayingInfoCenter"))
+    {
+        //在锁屏界面显示歌词图片等信息
+        NSMutableDictionary *info = [NSMutableDictionary dictionary];
+        
+        //歌名
+        //    info[MPMediaItemPropertyTitle] = music.name;
+        info[@"title"] = music.name;//与上面等价
+        
+        //歌手
+        info[MPMediaItemPropertyArtist] = music.singer;
+        
+        //专辑名字
+        info[MPMediaItemPropertyAlbumTitle] = music.singer;
+        
+        //图片
+        info[MPMediaItemPropertyArtwork] = [[MPMediaItemArtwork alloc] initWithImage:[UIImage imageNamed:music.icon]];
+        
+        //    info[MPMediaItemPropertyLyrics] = music.lrcname;
+        
+        [MPNowPlayingInfoCenter defaultCenter].nowPlayingInfo = info;
+    }
+    
+}
+
+#pragma mark: AVAudioPlayerDelegate
+
+/**
+ 开始打断
+ */
+- (void)audioPlayerBeginInterruption:(AVAudioPlayer *)player
+{
+    //暂停播放音乐
+}
+
+
+/**
+ 停止打断
+ */
+- (void)audioPlayerEndInterruption:(AVAudioPlayer *)player
+{
+    //开始播放音乐
+    [player play];
+}
 @end

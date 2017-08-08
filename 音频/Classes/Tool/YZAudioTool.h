@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+@class AVAudioPlayer;
 
 @interface YZAudioTool : NSObject
 
@@ -30,7 +31,7 @@
 
  @param filename 音乐文件名
  */
-+ (void)playMusic:(NSString *)filename;
++ (AVAudioPlayer *)playMusic:(NSString *)filename;
 
 
 /**
@@ -47,5 +48,11 @@
  @param filename 音乐文件名
  */
 + (void)stopMusic:(NSString *)filename;
+
+
+/**
+ 当前正在播放的歌
+ */
++ (AVAudioPlayer *)currentPlayingAudioPlayer;
 
 @end
