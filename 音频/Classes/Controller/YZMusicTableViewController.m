@@ -61,7 +61,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     YZMusicTableViewCell *cell = [YZMusicTableViewCell cellWithTableView:tableView];
     
     cell.music = self.musics[indexPath.row];
@@ -75,10 +74,9 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
     }
     
-    YZMusic *music = self.musics[indexPath.row];
-    cell.textLabel.text = music.name;
-    cell.detailTextLabel.text = music.singer;
-    cell.imageView.image = [UIImage imageNamed:music.singerIcon];
+    YZMusicTableViewCell *cell = [YZMusicTableViewCell celllWithTableView:tableView];
+    
+    cell.music = self.musics[indexPath.row];
     
     return cell;
      */

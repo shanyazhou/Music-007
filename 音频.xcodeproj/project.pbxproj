@@ -69,6 +69,7 @@
 		12D2A3B31F3AA3AB00F53AEB /* shake_match.wav in Resources */ = {isa = PBXBuildFile; fileRef = 12D2A3AF1F3AA3AB00F53AEB /* shake_match.wav */; };
 		12D2A3B41F3AA3AB00F53AEB /* shake_nomatch.wav in Resources */ = {isa = PBXBuildFile; fileRef = 12D2A3B01F3AA3AB00F53AEB /* shake_nomatch.wav */; };
 		12D2A3B51F3AA3AB00F53AEB /* shake_sound_male.wav in Resources */ = {isa = PBXBuildFile; fileRef = 12D2A3B11F3AA3AB00F53AEB /* shake_sound_male.wav */; };
+		12EFA6151F39BF0700CAA285 /* YZMusicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12EFA6141F39BF0700CAA285 /* YZMusicTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -154,6 +155,8 @@
 		12D2A3AF1F3AA3AB00F53AEB /* shake_match.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = shake_match.wav; sourceTree = "<group>"; };
 		12D2A3B01F3AA3AB00F53AEB /* shake_nomatch.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = shake_nomatch.wav; sourceTree = "<group>"; };
 		12D2A3B11F3AA3AB00F53AEB /* shake_sound_male.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = shake_sound_male.wav; sourceTree = "<group>"; };
+		12EFA6131F39BF0700CAA285 /* YZMusicTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZMusicTableViewCell.h; sourceTree = "<group>"; };
+		12EFA6141F39BF0700CAA285 /* YZMusicTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZMusicTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -360,6 +363,8 @@
 			children = (
 				126204591F39CEA50093AB0C /* YZMusicTableViewCell.h */,
 				1262045A1F39CEA50093AB0C /* YZMusicTableViewCell.m */,
+				12EFA6131F39BF0700CAA285 /* YZMusicTableViewCell.h */,
+				12EFA6141F39BF0700CAA285 /* YZMusicTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -502,6 +507,7 @@
 				123D03361F3878F50091CB5B /* NSObject+MJProperty.m in Sources */,
 				123D03381F3878F50091CB5B /* YZAudioTool.m in Sources */,
 				1262045B1F39CEA50093AB0C /* YZMusicTableViewCell.m in Sources */,
+				12EFA6151F39BF0700CAA285 /* YZMusicTableViewCell.m in Sources */,
 				123D03341F3878F50091CB5B /* NSObject+MJCoding.m in Sources */,
 				123D032B1F3878F50091CB5B /* YZMusicTableViewController.m in Sources */,
 				123D032E1F3878F50091CB5B /* MJExtensionConst.m in Sources */,
