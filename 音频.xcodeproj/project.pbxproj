@@ -63,7 +63,6 @@
 		123D03361F3878F50091CB5B /* NSObject+MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 123D03231F3878F50091CB5B /* NSObject+MJProperty.m */; };
 		123D03371F3878F50091CB5B /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 123D03251F3878F50091CB5B /* NSString+MJExtension.m */; };
 		123D03381F3878F50091CB5B /* YZAudioTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 123D03281F3878F50091CB5B /* YZAudioTool.m */; };
-		1262045B1F39CEA50093AB0C /* YZMusicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1262045A1F39CEA50093AB0C /* YZMusicTableViewCell.m */; };
 		1262045E1F39D8CF0093AB0C /* UIImage+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 1262045D1F39D8CF0093AB0C /* UIImage+MJ.m */; };
 		12D2A3B21F3AA3AB00F53AEB /* Click Pop (Medium 1).wav in Resources */ = {isa = PBXBuildFile; fileRef = 12D2A3AE1F3AA3AB00F53AEB /* Click Pop (Medium 1).wav */; };
 		12D2A3B31F3AA3AB00F53AEB /* shake_match.wav in Resources */ = {isa = PBXBuildFile; fileRef = 12D2A3AF1F3AA3AB00F53AEB /* shake_match.wav */; };
@@ -506,7 +505,6 @@
 				123D026B1F38341C0091CB5B /* main.m in Sources */,
 				123D03361F3878F50091CB5B /* NSObject+MJProperty.m in Sources */,
 				123D03381F3878F50091CB5B /* YZAudioTool.m in Sources */,
-				1262045B1F39CEA50093AB0C /* YZMusicTableViewCell.m in Sources */,
 				12EFA6151F39BF0700CAA285 /* YZMusicTableViewCell.m in Sources */,
 				123D03341F3878F50091CB5B /* NSObject+MJCoding.m in Sources */,
 				123D032B1F3878F50091CB5B /* YZMusicTableViewController.m in Sources */,
