@@ -48,7 +48,7 @@
 		123D03011F386A460091CB5B /* 309769.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 123D02DC1F386A460091CB5B /* 309769.mp3 */; };
 		123D03021F386A460091CB5B /* 339744.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 123D02DD1F386A460091CB5B /* 339744.mp3 */; };
 		123D03031F386A460091CB5B /* Musics.plist in Resources */ = {isa = PBXBuildFile; fileRef = 123D02DE1F386A460091CB5B /* Musics.plist */; };
-		123D032A1F3878F50091CB5B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 123D03071F3878F50091CB5B /* ViewController.m */; };
+		123D032A1F3878F50091CB5B /* YZViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 123D03071F3878F50091CB5B /* YZViewController.m */; };
 		123D032B1F3878F50091CB5B /* YZMusicTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 123D03091F3878F50091CB5B /* YZMusicTableViewController.m */; };
 		123D032C1F3878F50091CB5B /* YZMusic.m in Sources */ = {isa = PBXBuildFile; fileRef = 123D030C1F3878F50091CB5B /* YZMusic.m */; };
 		123D032D1F3878F50091CB5B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 123D030F1F3878F50091CB5B /* AppDelegate.m */; };
@@ -65,6 +65,10 @@
 		123D03381F3878F50091CB5B /* YZAudioTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 123D03281F3878F50091CB5B /* YZAudioTool.m */; };
 		1262045B1F39CEA50093AB0C /* YZMusicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1262045A1F39CEA50093AB0C /* YZMusicTableViewCell.m */; };
 		1262045E1F39D8CF0093AB0C /* UIImage+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 1262045D1F39D8CF0093AB0C /* UIImage+MJ.m */; };
+		12D2A3B21F3AA3AB00F53AEB /* Click Pop (Medium 1).wav in Resources */ = {isa = PBXBuildFile; fileRef = 12D2A3AE1F3AA3AB00F53AEB /* Click Pop (Medium 1).wav */; };
+		12D2A3B31F3AA3AB00F53AEB /* shake_match.wav in Resources */ = {isa = PBXBuildFile; fileRef = 12D2A3AF1F3AA3AB00F53AEB /* shake_match.wav */; };
+		12D2A3B41F3AA3AB00F53AEB /* shake_nomatch.wav in Resources */ = {isa = PBXBuildFile; fileRef = 12D2A3B01F3AA3AB00F53AEB /* shake_nomatch.wav */; };
+		12D2A3B51F3AA3AB00F53AEB /* shake_sound_male.wav in Resources */ = {isa = PBXBuildFile; fileRef = 12D2A3B11F3AA3AB00F53AEB /* shake_sound_male.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,8 +115,8 @@
 		123D02DC1F386A460091CB5B /* 309769.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 309769.mp3; sourceTree = "<group>"; };
 		123D02DD1F386A460091CB5B /* 339744.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 339744.mp3; sourceTree = "<group>"; };
 		123D02DE1F386A460091CB5B /* Musics.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Musics.plist; sourceTree = "<group>"; };
-		123D03061F3878F50091CB5B /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		123D03071F3878F50091CB5B /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		123D03061F3878F50091CB5B /* YZViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZViewController.h; sourceTree = "<group>"; };
+		123D03071F3878F50091CB5B /* YZViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZViewController.m; sourceTree = "<group>"; };
 		123D03081F3878F50091CB5B /* YZMusicTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZMusicTableViewController.h; sourceTree = "<group>"; };
 		123D03091F3878F50091CB5B /* YZMusicTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZMusicTableViewController.m; sourceTree = "<group>"; };
 		123D030B1F3878F50091CB5B /* YZMusic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZMusic.h; sourceTree = "<group>"; };
@@ -146,6 +150,10 @@
 		1262045A1F39CEA50093AB0C /* YZMusicTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZMusicTableViewCell.m; sourceTree = "<group>"; };
 		1262045C1F39D8CF0093AB0C /* UIImage+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MJ.h"; sourceTree = "<group>"; };
 		1262045D1F39D8CF0093AB0C /* UIImage+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MJ.m"; sourceTree = "<group>"; };
+		12D2A3AE1F3AA3AB00F53AEB /* Click Pop (Medium 1).wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Click Pop (Medium 1).wav"; sourceTree = "<group>"; };
+		12D2A3AF1F3AA3AB00F53AEB /* shake_match.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = shake_match.wav; sourceTree = "<group>"; };
+		12D2A3B01F3AA3AB00F53AEB /* shake_nomatch.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = shake_nomatch.wav; sourceTree = "<group>"; };
+		12D2A3B11F3AA3AB00F53AEB /* shake_sound_male.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = shake_sound_male.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +208,7 @@
 		123D02B61F386A450091CB5B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				12D2A3AD1F3AA3AB00F53AEB /* Sound */,
 				123D02B71F386A450091CB5B /* Images */,
 				123D02CA1F386A450091CB5B /* Lrcs */,
 				123D02D41F386A460091CB5B /* MP3s */,
@@ -280,8 +289,8 @@
 		123D03051F3878F50091CB5B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				123D03061F3878F50091CB5B /* ViewController.h */,
-				123D03071F3878F50091CB5B /* ViewController.m */,
+				123D03061F3878F50091CB5B /* YZViewController.h */,
+				123D03071F3878F50091CB5B /* YZViewController.m */,
 				123D03081F3878F50091CB5B /* YZMusicTableViewController.h */,
 				123D03091F3878F50091CB5B /* YZMusicTableViewController.m */,
 			);
@@ -355,6 +364,17 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		12D2A3AD1F3AA3AB00F53AEB /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				12D2A3AE1F3AA3AB00F53AEB /* Click Pop (Medium 1).wav */,
+				12D2A3AF1F3AA3AB00F53AEB /* shake_match.wav */,
+				12D2A3B01F3AA3AB00F53AEB /* shake_nomatch.wav */,
+				12D2A3B11F3AA3AB00F53AEB /* shake_sound_male.wav */,
+			);
+			path = Sound;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -425,6 +445,7 @@
 				123D02FE1F386A460091CB5B /* 14945107.mp3 in Resources */,
 				123D02FB1F386A460091CB5B /* 10736444.mp3 in Resources */,
 				123D02E21F386A460091CB5B /* dzq_icon@2x.jpg in Resources */,
+				12D2A3B21F3AA3AB00F53AEB /* Click Pop (Medium 1).wav in Resources */,
 				123D02E31F386A460091CB5B /* eason@2x.jpg in Resources */,
 				123D02791F38341C0091CB5B /* LaunchScreen.storyboard in Resources */,
 				123D02F01F386A460091CB5B /* zxy_icon@2x.jpg in Resources */,
@@ -439,9 +460,12 @@
 				123D02F31F386A460091CB5B /* 120125029.lrc in Resources */,
 				123D02741F38341C0091CB5B /* Main.storyboard in Resources */,
 				123D02FF1F386A460091CB5B /* 235319.mp3 in Resources */,
+				12D2A3B51F3AA3AB00F53AEB /* shake_sound_male.wav in Resources */,
 				123D02F71F386A460091CB5B /* 255319.lrc in Resources */,
+				12D2A3B41F3AA3AB00F53AEB /* shake_nomatch.wav in Resources */,
 				123D02EF1F386A460091CB5B /* zxy@2x.jpg in Resources */,
 				123D02E91F386A460091CB5B /* kzxd@2x.jpg in Resources */,
+				12D2A3B31F3AA3AB00F53AEB /* shake_match.wav in Resources */,
 				123D02EB1F386A460091CB5B /* nanquan@2x.jpg in Resources */,
 				123D02DF1F386A460091CB5B /* bb@2x.jpg in Resources */,
 				123D02E41F386A460091CB5B /* eason_icon@2x.jpg in Resources */,
@@ -467,7 +491,7 @@
 				123D032C1F3878F50091CB5B /* YZMusic.m in Sources */,
 				123D032F1F3878F50091CB5B /* MJFoundation.m in Sources */,
 				123D03351F3878F50091CB5B /* NSObject+MJKeyValue.m in Sources */,
-				123D032A1F3878F50091CB5B /* ViewController.m in Sources */,
+				123D032A1F3878F50091CB5B /* YZViewController.m in Sources */,
 				1262045E1F39D8CF0093AB0C /* UIImage+MJ.m in Sources */,
 				123D03301F3878F50091CB5B /* MJProperty.m in Sources */,
 				123D03311F3878F50091CB5B /* MJPropertyKey.m in Sources */,

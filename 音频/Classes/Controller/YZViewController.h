@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  YZViewController.h
 //  音频
 //
 //  Created by lilida on 2017/8/7.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface YZViewController : UIViewController
 
 
 @end

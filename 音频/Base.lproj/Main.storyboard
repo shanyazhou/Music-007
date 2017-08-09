@@ -18,12 +18,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="bda-Ww-2T2" kind="relationship" relationship="rootViewController" id="1DW-jv-1y0"/>
+                        <segue destination="tiy-mh-Tff" kind="relationship" relationship="rootViewController" id="2Xn-Ti-M2c"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uBy-z3-4og" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-553" y="148"/>
+            <point key="canvasLocation" x="-1054" y="148"/>
         </scene>
         <!--音乐列表-->
         <scene sceneID="bew-re-Kzb">
@@ -58,7 +58,78 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ia-Lp-rdW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="204" y="148"/>
+            <point key="canvasLocation" x="1036" y="208"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="WDk-nB-7W2">
+            <objects>
+                <viewController id="tiy-mh-Tff" customClass="YZViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yP9-Nc-bSe"/>
+                        <viewControllerLayoutGuide type="bottom" id="6o8-Il-GAT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vjy-Yd-9yk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lZc-LD-jhB">
+                                <rect key="frame" x="137" y="144" width="100" height="30"/>
+                                <color key="backgroundColor" red="0.59856682933791328" green="1" blue="0.54865737171480533" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="Y1P-Ve-Wqo"/>
+                                    <constraint firstAttribute="height" constant="30" id="ek4-ul-AeK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="音效">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="soundClick:" destination="tiy-mh-Tff" eventType="touchUpInside" id="hu6-OP-CvE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Otu-jl-ZR5">
+                                <rect key="frame" x="137" y="254" width="100" height="30"/>
+                                <color key="backgroundColor" red="0.59856682930000005" green="1" blue="0.54865737169999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="DWB-40-KIY"/>
+                                    <constraint firstAttribute="height" constant="30" id="UU9-cK-5MG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="音乐">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <segue destination="bda-Ww-2T2" kind="push" id="Ktj-cI-7P5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dfv-2Q-Smf">
+                                <rect key="frame" x="137" y="364" width="100" height="30"/>
+                                <color key="backgroundColor" red="0.59856682930000005" green="1" blue="0.54865737169999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="h0m-5k-hod"/>
+                                    <constraint firstAttribute="width" constant="100" id="zf5-Uc-q2m"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="录音">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Otu-jl-ZR5" firstAttribute="top" secondItem="lZc-LD-jhB" secondAttribute="bottom" constant="80" id="1jW-0L-oKg"/>
+                            <constraint firstItem="lZc-LD-jhB" firstAttribute="top" secondItem="yP9-Nc-bSe" secondAttribute="bottom" constant="80" id="2Xx-dc-13u"/>
+                            <constraint firstItem="lZc-LD-jhB" firstAttribute="centerX" secondItem="vjy-Yd-9yk" secondAttribute="centerX" id="B1R-aZ-db8"/>
+                            <constraint firstItem="Dfv-2Q-Smf" firstAttribute="top" secondItem="Otu-jl-ZR5" secondAttribute="bottom" constant="80" id="b0B-1e-FNo"/>
+                            <constraint firstItem="Otu-jl-ZR5" firstAttribute="centerX" secondItem="vjy-Yd-9yk" secondAttribute="centerX" id="drU-Dd-oj0"/>
+                            <constraint firstItem="Dfv-2Q-Smf" firstAttribute="centerX" secondItem="vjy-Yd-9yk" secondAttribute="centerX" id="hZ4-lU-SVV"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="nap-ys-5An"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n5t-mN-KyG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-281" y="148"/>
         </scene>
     </scenes>
 </document>
