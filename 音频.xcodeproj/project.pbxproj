@@ -74,6 +74,8 @@
 		12D2A3C61F3AE5C000F53AEB /* 一东.plist in Resources */ = {isa = PBXBuildFile; fileRef = 12D2A3C31F3AE5C000F53AEB /* 一东.plist */; };
 		12D2A3C71F3AE5C000F53AEB /* Background.caf in Resources */ = {isa = PBXBuildFile; fileRef = 12D2A3C41F3AE5C000F53AEB /* Background.caf */; };
 		12D2A3CA1F3AE60000F53AEB /* YZListenBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D2A3C91F3AE5FF00F53AEB /* YZListenBook.m */; };
+		12D2A3CE1F3B056200F53AEB /* YZMusicPlayingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D2A3CC1F3B056200F53AEB /* YZMusicPlayingViewController.m */; };
+		12D2A3D21F3B0B4500F53AEB /* YZMusicTableViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D2A3D11F3B0B4500F53AEB /* YZMusicTableViewController2.m */; };
 		12EFA6151F39BF0700CAA285 /* YZMusicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12EFA6141F39BF0700CAA285 /* YZMusicTableViewCell.m */; };
 /* End PBXBuildFile section */
 
@@ -169,6 +171,10 @@
 		12D2A3C41F3AE5C000F53AEB /* Background.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Background.caf; sourceTree = "<group>"; };
 		12D2A3C81F3AE5FF00F53AEB /* YZListenBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZListenBook.h; sourceTree = "<group>"; };
 		12D2A3C91F3AE5FF00F53AEB /* YZListenBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZListenBook.m; sourceTree = "<group>"; };
+		12D2A3CB1F3B056200F53AEB /* YZMusicPlayingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZMusicPlayingViewController.h; sourceTree = "<group>"; };
+		12D2A3CC1F3B056200F53AEB /* YZMusicPlayingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZMusicPlayingViewController.m; sourceTree = "<group>"; };
+		12D2A3D01F3B0B4500F53AEB /* YZMusicTableViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZMusicTableViewController2.h; sourceTree = "<group>"; };
+		12D2A3D11F3B0B4500F53AEB /* YZMusicTableViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZMusicTableViewController2.m; sourceTree = "<group>"; };
 		12EFA6131F39BF0700CAA285 /* YZMusicTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZMusicTableViewCell.h; sourceTree = "<group>"; };
 		12EFA6141F39BF0700CAA285 /* YZMusicTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZMusicTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -313,6 +319,10 @@
 				12D2A3BA1F3ABA5600F53AEB /* YZRecordViewController.m */,
 				123D03081F3878F50091CB5B /* YZMusicTableViewController.h */,
 				123D03091F3878F50091CB5B /* YZMusicTableViewController.m */,
+				12D2A3D01F3B0B4500F53AEB /* YZMusicTableViewController2.h */,
+				12D2A3D11F3B0B4500F53AEB /* YZMusicTableViewController2.m */,
+				12D2A3CB1F3B056200F53AEB /* YZMusicPlayingViewController.h */,
+				12D2A3CC1F3B056200F53AEB /* YZMusicPlayingViewController.m */,
 				12D2A3BE1F3AE4F600F53AEB /* YZListenBookTableViewController.h */,
 				12D2A3BF1F3AE4F600F53AEB /* YZListenBookTableViewController.m */,
 			);
@@ -541,8 +551,10 @@
 				123D03331F3878F50091CB5B /* NSObject+MJClass.m in Sources */,
 				123D03371F3878F50091CB5B /* NSString+MJExtension.m in Sources */,
 				123D026B1F38341C0091CB5B /* main.m in Sources */,
+				12D2A3CE1F3B056200F53AEB /* YZMusicPlayingViewController.m in Sources */,
 				123D03361F3878F50091CB5B /* NSObject+MJProperty.m in Sources */,
 				123D03381F3878F50091CB5B /* YZAudioTool.m in Sources */,
+				12D2A3D21F3B0B4500F53AEB /* YZMusicTableViewController2.m in Sources */,
 				12EFA6151F39BF0700CAA285 /* YZMusicTableViewCell.m in Sources */,
 				123D03341F3878F50091CB5B /* NSObject+MJCoding.m in Sources */,
 				123D032B1F3878F50091CB5B /* YZMusicTableViewController.m in Sources */,
