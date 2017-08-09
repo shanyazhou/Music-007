@@ -58,7 +58,84 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ia-Lp-rdW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1036" y="208"/>
+            <point key="canvasLocation" x="868" y="-125"/>
+        </scene>
+        <!--Record View Controller-->
+        <scene sceneID="sk7-dV-tvu">
+            <objects>
+                <viewController id="Szz-sR-YVZ" customClass="YZRecordViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vjU-c9-szi"/>
+                        <viewControllerLayoutGuide type="bottom" id="Fhk-KZ-bZF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xxV-eD-JhY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jBQ-x0-b7p">
+                                <rect key="frame" x="137" y="144" width="100" height="30"/>
+                                <color key="backgroundColor" red="0.59856682930000005" green="1" blue="0.54865737169999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="4Qg-fo-24f"/>
+                                    <constraint firstAttribute="height" constant="30" id="WtL-k4-W1u"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="开始录音">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="soundClick:" destination="tiy-mh-Tff" eventType="touchUpInside" id="RXj-Uq-JOn"/>
+                                    <action selector="startRecord:" destination="Szz-sR-YVZ" eventType="touchUpInside" id="09q-QG-4bP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2y4-PB-9TW">
+                                <rect key="frame" x="137.5" y="364" width="100" height="30"/>
+                                <color key="backgroundColor" red="0.59856682930000005" green="1" blue="0.54865737169999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="KND-y6-uoN"/>
+                                    <constraint firstAttribute="height" constant="30" id="Xfo-6u-l4s"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="播放">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="soundClick:" destination="tiy-mh-Tff" eventType="touchUpInside" id="ZUM-2E-zqA"/>
+                                    <action selector="startPlayRecord:" destination="Szz-sR-YVZ" eventType="touchUpInside" id="cJb-z3-Ane"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pKu-rI-jUA">
+                                <rect key="frame" x="137" y="254" width="100" height="30"/>
+                                <color key="backgroundColor" red="0.59856682930000005" green="1" blue="0.54865737169999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="4BR-rX-rM2"/>
+                                    <constraint firstAttribute="width" constant="100" id="FN9-jI-iyZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="停止录音">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="soundClick:" destination="tiy-mh-Tff" eventType="touchUpInside" id="G3f-2h-ffT"/>
+                                    <action selector="stopRecord:" destination="Szz-sR-YVZ" eventType="touchUpInside" id="sB1-47-ivw"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2y4-PB-9TW" firstAttribute="centerX" secondItem="xxV-eD-JhY" secondAttribute="centerX" id="4oK-IB-vBp"/>
+                            <constraint firstItem="pKu-rI-jUA" firstAttribute="top" secondItem="jBQ-x0-b7p" secondAttribute="bottom" constant="80" id="GcZ-MB-xkU"/>
+                            <constraint firstItem="jBQ-x0-b7p" firstAttribute="centerX" secondItem="xxV-eD-JhY" secondAttribute="centerX" id="Jr2-Lg-cYr"/>
+                            <constraint firstItem="jBQ-x0-b7p" firstAttribute="top" secondItem="vjU-c9-szi" secondAttribute="bottom" constant="80" id="g0q-ye-v3e"/>
+                            <constraint firstItem="2y4-PB-9TW" firstAttribute="top" secondItem="pKu-rI-jUA" secondAttribute="bottom" constant="80" id="mad-gT-a4s"/>
+                            <constraint firstItem="pKu-rI-jUA" firstAttribute="centerX" secondItem="xxV-eD-JhY" secondAttribute="centerX" id="zse-jQ-J0l"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ZvY-NX-6BA"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1F1-ge-4xv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="868" y="571"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="WDk-nB-7W2">
@@ -113,6 +190,9 @@
                                 <state key="normal" title="录音">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <segue destination="Szz-sR-YVZ" kind="push" id="lu3-l2-8pw"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

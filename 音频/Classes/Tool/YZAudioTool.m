@@ -76,6 +76,8 @@ static NSMutableDictionary *_audioPlayerDict;
 /************************************************************/
 
 
+
+
 + (AVAudioPlayer *)playMusic:(NSString *)filename
 {
     if(!filename) return nil;
@@ -91,6 +93,25 @@ static NSMutableDictionary *_audioPlayerDict;
         [audioPlayer prepareToPlay];
         
         _audioPlayerDict[filename] = audioPlayer;
+    }
+    
+    if(!audioPlayer.isPlaying){
+        [audioPlayer play];
+    }
+    return audioPlayer;
+}
+
++ (AVAudioPlayer *)playMusicWithURL:(NSURL *)url
+{
+    if(!url) return nil;
+    AVAudioPlayer *audioPlayer = _audioPlayerDict[url];
+    if(!audioPlayer)
+    {
+        audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+        
+        [audioPlayer prepareToPlay];
+        
+        _audioPlayerDict[url] = audioPlayer;
     }
     
     if(!audioPlayer.isPlaying){

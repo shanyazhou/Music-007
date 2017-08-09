@@ -33,6 +33,8 @@
  */
 + (AVAudioPlayer *)playMusic:(NSString *)filename;
 
++ (AVAudioPlayer *)playMusicWithURL:(NSURL *)url;
+
 
 /**
  暂停音乐
