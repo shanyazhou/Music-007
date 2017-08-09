@@ -60,6 +60,35 @@
             </objects>
             <point key="canvasLocation" x="868" y="-125"/>
         </scene>
+        <!--Listen Book Table View Controller-->
+        <scene sceneID="tkf-ZD-Nue">
+            <objects>
+                <tableViewController id="jAh-Gy-HeY" customClass="YZListenBookTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="jEs-mg-hL6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="whR-kq-kee">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="whR-kq-kee" id="laS-jb-3Pf">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="jAh-Gy-HeY" id="TCH-kP-fXZ"/>
+                            <outlet property="delegate" destination="jAh-Gy-HeY" id="2QW-1q-FQs"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="4Gx-D8-j8M"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EM5-bk-Uxi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-282" y="895"/>
+        </scene>
         <!--Record View Controller-->
         <scene sceneID="sk7-dV-tvu">
             <objects>
@@ -194,12 +223,29 @@
                                     <segue destination="Szz-sR-YVZ" kind="push" id="lu3-l2-8pw"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mFg-gw-Z1x">
+                                <rect key="frame" x="137" y="474" width="100" height="30"/>
+                                <color key="backgroundColor" red="0.59856682930000005" green="1" blue="0.54865737169999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="OmA-Ci-Uzm"/>
+                                    <constraint firstAttribute="width" constant="100" id="mSM-xm-E6J"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="听书">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <segue destination="jAh-Gy-HeY" kind="push" id="WCE-2v-aar"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Otu-jl-ZR5" firstAttribute="top" secondItem="lZc-LD-jhB" secondAttribute="bottom" constant="80" id="1jW-0L-oKg"/>
                             <constraint firstItem="lZc-LD-jhB" firstAttribute="top" secondItem="yP9-Nc-bSe" secondAttribute="bottom" constant="80" id="2Xx-dc-13u"/>
+                            <constraint firstItem="mFg-gw-Z1x" firstAttribute="centerX" secondItem="vjy-Yd-9yk" secondAttribute="centerX" id="4Du-yG-bIf"/>
                             <constraint firstItem="lZc-LD-jhB" firstAttribute="centerX" secondItem="vjy-Yd-9yk" secondAttribute="centerX" id="B1R-aZ-db8"/>
+                            <constraint firstItem="mFg-gw-Z1x" firstAttribute="top" secondItem="Dfv-2Q-Smf" secondAttribute="bottom" constant="80" id="HLs-AT-yGk"/>
                             <constraint firstItem="Dfv-2Q-Smf" firstAttribute="top" secondItem="Otu-jl-ZR5" secondAttribute="bottom" constant="80" id="b0B-1e-FNo"/>
                             <constraint firstItem="Otu-jl-ZR5" firstAttribute="centerX" secondItem="vjy-Yd-9yk" secondAttribute="centerX" id="drU-Dd-oj0"/>
                             <constraint firstItem="Dfv-2Q-Smf" firstAttribute="centerX" secondItem="vjy-Yd-9yk" secondAttribute="centerX" id="hZ4-lU-SVV"/>
