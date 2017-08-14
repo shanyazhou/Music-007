@@ -8,24 +8,25 @@
 
 #import "YZMusicTableViewController2.h"
 #import <AVFoundation/AVFoundation.h>
-#import "YZMusic.h"
-#import "MJExtension.h"
 #import "YZAudioTool.h"
+#import "YZMusicTool.h"
 #import "YZMusicTableViewCell.h"
+#import "YZMusicPlayingViewController.h"
 
 @interface YZMusicTableViewController2 ()
-@property (strong, nonatomic) NSArray *musics;
+@property (strong, nonatomic) YZMusicPlayingViewController *musicPlayingVc;
 @end
 
 @implementation YZMusicTableViewController2
-- (NSArray *)musics
+
+- (YZMusicPlayingViewController *)musicPlayingVc
 {
-    if(!_musics)
-    {
-        _musics = [YZMusic mj_objectArrayWithFilename:@"Musics.plist"];
+    if (!_musicPlayingVc) {
+        _musicPlayingVc = [[YZMusicPlayingViewController alloc] init];
     }
-    return _musics;
+    return _musicPlayingVc;
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -35,15 +36,15 @@
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return self.musics.count;
+{ 
+    return [YZMusicTool musics].count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     YZMusicTableViewCell *cell = [YZMusicTableViewCell cellWithTableView:tableView];
     
-    cell.music = self.musics[indexPath.row];
+    cell.music = [YZMusicTool musics][indexPath.row];
     
     return cell;
 }
@@ -59,7 +60,13 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     //2 使用modal方式，调转到新的控制器
-    [self performSegueWithIdentifier:@"musiclistToPlaying" sender:nil];
+    //[self performSegueWithIdentifier:@"musiclistToPlaying" sender:nil];
+    //上面的方法有点不好，因为，控制器消失后，歌曲还是在播放的，并没有消失，所以，用下面的方法：
+    
+    YZMusic *music = [YZMusicTool musics][indexPath.row];
+    [YZMusicTool setPlayingMusic:music];
+    
+    [self.musicPlayingVc show];
     
 }
 

@@ -63,7 +63,11 @@
 		123D03361F3878F50091CB5B /* NSObject+MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 123D03231F3878F50091CB5B /* NSObject+MJProperty.m */; };
 		123D03371F3878F50091CB5B /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 123D03251F3878F50091CB5B /* NSString+MJExtension.m */; };
 		123D03381F3878F50091CB5B /* YZAudioTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 123D03281F3878F50091CB5B /* YZAudioTool.m */; };
-		1262045E1F39D8CF0093AB0C /* UIImage+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 1262045D1F39D8CF0093AB0C /* UIImage+MJ.m */; };
+		12A6292F1F41758900663CDB /* UIImage+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A6292C1F41758900663CDB /* UIImage+MJ.m */; };
+		12A629301F41758900663CDB /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A6292E1F41758900663CDB /* UIView+Extension.m */; };
+		12A629351F41793600663CDB /* YZMusicPlayingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A629331F41793600663CDB /* YZMusicPlayingViewController.m */; };
+		12A629361F41793600663CDB /* YZMusicPlayingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12A629341F41793600663CDB /* YZMusicPlayingViewController.xib */; };
+		12A629391F41919800663CDB /* YZMusicTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A629381F41919800663CDB /* YZMusicTool.m */; };
 		12D2A3B21F3AA3AB00F53AEB /* Click Pop (Medium 1).wav in Resources */ = {isa = PBXBuildFile; fileRef = 12D2A3AE1F3AA3AB00F53AEB /* Click Pop (Medium 1).wav */; };
 		12D2A3B31F3AA3AB00F53AEB /* shake_match.wav in Resources */ = {isa = PBXBuildFile; fileRef = 12D2A3AF1F3AA3AB00F53AEB /* shake_match.wav */; };
 		12D2A3B41F3AA3AB00F53AEB /* shake_nomatch.wav in Resources */ = {isa = PBXBuildFile; fileRef = 12D2A3B01F3AA3AB00F53AEB /* shake_nomatch.wav */; };
@@ -74,7 +78,6 @@
 		12D2A3C61F3AE5C000F53AEB /* 一东.plist in Resources */ = {isa = PBXBuildFile; fileRef = 12D2A3C31F3AE5C000F53AEB /* 一东.plist */; };
 		12D2A3C71F3AE5C000F53AEB /* Background.caf in Resources */ = {isa = PBXBuildFile; fileRef = 12D2A3C41F3AE5C000F53AEB /* Background.caf */; };
 		12D2A3CA1F3AE60000F53AEB /* YZListenBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D2A3C91F3AE5FF00F53AEB /* YZListenBook.m */; };
-		12D2A3CE1F3B056200F53AEB /* YZMusicPlayingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D2A3CC1F3B056200F53AEB /* YZMusicPlayingViewController.m */; };
 		12D2A3D21F3B0B4500F53AEB /* YZMusicTableViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D2A3D11F3B0B4500F53AEB /* YZMusicTableViewController2.m */; };
 		12EFA6151F39BF0700CAA285 /* YZMusicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12EFA6141F39BF0700CAA285 /* YZMusicTableViewCell.m */; };
 /* End PBXBuildFile section */
@@ -156,8 +159,16 @@
 		123D03281F3878F50091CB5B /* YZAudioTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZAudioTool.m; sourceTree = "<group>"; };
 		126204591F39CEA50093AB0C /* YZMusicTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZMusicTableViewCell.h; sourceTree = "<group>"; };
 		1262045A1F39CEA50093AB0C /* YZMusicTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZMusicTableViewCell.m; sourceTree = "<group>"; };
-		1262045C1F39D8CF0093AB0C /* UIImage+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MJ.h"; sourceTree = "<group>"; };
-		1262045D1F39D8CF0093AB0C /* UIImage+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MJ.m"; sourceTree = "<group>"; };
+		12A6292B1F41758900663CDB /* UIImage+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MJ.h"; sourceTree = "<group>"; };
+		12A6292C1F41758900663CDB /* UIImage+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MJ.m"; sourceTree = "<group>"; };
+		12A6292D1F41758900663CDB /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		12A6292E1F41758900663CDB /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		12A629311F41766900663CDB /* 音频-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "音频-Prefix.pch"; sourceTree = "<group>"; };
+		12A629321F41793600663CDB /* YZMusicPlayingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZMusicPlayingViewController.h; sourceTree = "<group>"; };
+		12A629331F41793600663CDB /* YZMusicPlayingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZMusicPlayingViewController.m; sourceTree = "<group>"; };
+		12A629341F41793600663CDB /* YZMusicPlayingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YZMusicPlayingViewController.xib; sourceTree = "<group>"; };
+		12A629371F41919800663CDB /* YZMusicTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZMusicTool.h; sourceTree = "<group>"; };
+		12A629381F41919800663CDB /* YZMusicTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZMusicTool.m; sourceTree = "<group>"; };
 		12D2A3AE1F3AA3AB00F53AEB /* Click Pop (Medium 1).wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Click Pop (Medium 1).wav"; sourceTree = "<group>"; };
 		12D2A3AF1F3AA3AB00F53AEB /* shake_match.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = shake_match.wav; sourceTree = "<group>"; };
 		12D2A3B01F3AA3AB00F53AEB /* shake_nomatch.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = shake_nomatch.wav; sourceTree = "<group>"; };
@@ -171,8 +182,6 @@
 		12D2A3C41F3AE5C000F53AEB /* Background.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Background.caf; sourceTree = "<group>"; };
 		12D2A3C81F3AE5FF00F53AEB /* YZListenBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZListenBook.h; sourceTree = "<group>"; };
 		12D2A3C91F3AE5FF00F53AEB /* YZListenBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZListenBook.m; sourceTree = "<group>"; };
-		12D2A3CB1F3B056200F53AEB /* YZMusicPlayingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZMusicPlayingViewController.h; sourceTree = "<group>"; };
-		12D2A3CC1F3B056200F53AEB /* YZMusicPlayingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZMusicPlayingViewController.m; sourceTree = "<group>"; };
 		12D2A3D01F3B0B4500F53AEB /* YZMusicTableViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZMusicTableViewController2.h; sourceTree = "<group>"; };
 		12D2A3D11F3B0B4500F53AEB /* YZMusicTableViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZMusicTableViewController2.m; sourceTree = "<group>"; };
 		12EFA6131F39BF0700CAA285 /* YZMusicTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZMusicTableViewCell.h; sourceTree = "<group>"; };
@@ -214,6 +223,7 @@
 				123D02751F38341C0091CB5B /* Assets.xcassets */,
 				123D02771F38341C0091CB5B /* LaunchScreen.storyboard */,
 				123D027A1F38341C0091CB5B /* Info.plist */,
+				12A629311F41766900663CDB /* 音频-Prefix.pch */,
 				123D02691F38341C0091CB5B /* Supporting Files */,
 			);
 			path = "音频";
@@ -305,7 +315,6 @@
 				123D030A1F3878F50091CB5B /* Model */,
 				126204581F39CE850093AB0C /* View */,
 				123D030D1F3878F50091CB5B /* Other */,
-				123D03261F3878F50091CB5B /* Tool */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -321,8 +330,9 @@
 				123D03091F3878F50091CB5B /* YZMusicTableViewController.m */,
 				12D2A3D01F3B0B4500F53AEB /* YZMusicTableViewController2.h */,
 				12D2A3D11F3B0B4500F53AEB /* YZMusicTableViewController2.m */,
-				12D2A3CB1F3B056200F53AEB /* YZMusicPlayingViewController.h */,
-				12D2A3CC1F3B056200F53AEB /* YZMusicPlayingViewController.m */,
+				12A629321F41793600663CDB /* YZMusicPlayingViewController.h */,
+				12A629331F41793600663CDB /* YZMusicPlayingViewController.m */,
+				12A629341F41793600663CDB /* YZMusicPlayingViewController.xib */,
 				12D2A3BE1F3AE4F600F53AEB /* YZListenBookTableViewController.h */,
 				12D2A3BF1F3AE4F600F53AEB /* YZListenBookTableViewController.m */,
 			);
@@ -343,10 +353,10 @@
 		123D030D1F3878F50091CB5B /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				1262045C1F39D8CF0093AB0C /* UIImage+MJ.h */,
-				1262045D1F39D8CF0093AB0C /* UIImage+MJ.m */,
 				123D030E1F3878F50091CB5B /* AppDelegate.h */,
 				123D030F1F3878F50091CB5B /* AppDelegate.m */,
+				123D03261F3878F50091CB5B /* Tool */,
+				12A6292A1F41758900663CDB /* Category */,
 				123D03101F3878F50091CB5B /* MJExtension */,
 			);
 			path = Other;
@@ -385,8 +395,11 @@
 			children = (
 				123D03271F3878F50091CB5B /* YZAudioTool.h */,
 				123D03281F3878F50091CB5B /* YZAudioTool.m */,
+				12A629371F41919800663CDB /* YZMusicTool.h */,
+				12A629381F41919800663CDB /* YZMusicTool.m */,
 			);
-			path = Tool;
+			name = Tool;
+			path = ../Tool;
 			sourceTree = "<group>";
 		};
 		126204581F39CE850093AB0C /* View */ = {
@@ -398,6 +411,17 @@
 				12EFA6141F39BF0700CAA285 /* YZMusicTableViewCell.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		12A6292A1F41758900663CDB /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				12A6292B1F41758900663CDB /* UIImage+MJ.h */,
+				12A6292C1F41758900663CDB /* UIImage+MJ.m */,
+				12A6292D1F41758900663CDB /* UIView+Extension.h */,
+				12A6292E1F41758900663CDB /* UIView+Extension.m */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 		12D2A3AD1F3AA3AB00F53AEB /* Sound */ = {
@@ -480,6 +504,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12A629361F41793600663CDB /* YZMusicPlayingViewController.xib in Resources */,
 				123D02F81F386A460091CB5B /* 309769.lrc in Resources */,
 				123D02EA1F386A460091CB5B /* kzxd_icon@2x.jpg in Resources */,
 				123D02FD1F386A460091CB5B /* 12309111.mp3 in Resources */,
@@ -537,13 +562,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12A629351F41793600663CDB /* YZMusicPlayingViewController.m in Sources */,
 				12D2A3C01F3AE4F600F53AEB /* YZListenBookTableViewController.m in Sources */,
 				123D032C1F3878F50091CB5B /* YZMusic.m in Sources */,
 				123D032F1F3878F50091CB5B /* MJFoundation.m in Sources */,
 				123D03351F3878F50091CB5B /* NSObject+MJKeyValue.m in Sources */,
 				123D032A1F3878F50091CB5B /* YZViewController.m in Sources */,
-				1262045E1F39D8CF0093AB0C /* UIImage+MJ.m in Sources */,
 				123D03301F3878F50091CB5B /* MJProperty.m in Sources */,
+				12A629301F41758900663CDB /* UIView+Extension.m in Sources */,
+				12A6292F1F41758900663CDB /* UIImage+MJ.m in Sources */,
 				123D03311F3878F50091CB5B /* MJPropertyKey.m in Sources */,
 				12D2A3CA1F3AE60000F53AEB /* YZListenBook.m in Sources */,
 				12D2A3BB1F3ABA5600F53AEB /* YZRecordViewController.m in Sources */,
@@ -551,8 +578,8 @@
 				123D03331F3878F50091CB5B /* NSObject+MJClass.m in Sources */,
 				123D03371F3878F50091CB5B /* NSString+MJExtension.m in Sources */,
 				123D026B1F38341C0091CB5B /* main.m in Sources */,
-				12D2A3CE1F3B056200F53AEB /* YZMusicPlayingViewController.m in Sources */,
 				123D03361F3878F50091CB5B /* NSObject+MJProperty.m in Sources */,
+				12A629391F41919800663CDB /* YZMusicTool.m in Sources */,
 				123D03381F3878F50091CB5B /* YZAudioTool.m in Sources */,
 				12D2A3D21F3B0B4500F53AEB /* YZMusicTableViewController2.m in Sources */,
 				12EFA6151F39BF0700CAA285 /* YZMusicTableViewCell.m in Sources */,
@@ -616,6 +643,8 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "音频/音频-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -663,6 +692,8 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "音频/音频-Prefix.pch";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;

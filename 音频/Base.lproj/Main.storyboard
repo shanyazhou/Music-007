@@ -298,31 +298,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="音乐列表2" id="RYj-3n-bVz"/>
-                    <connections>
-                        <segue destination="bIs-EY-tea" kind="modal" identifier="musiclistToPlaying" id="BeM-Hv-xIt"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TqZ-yk-cpO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="846" y="236"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="i2y-85-mS0">
-            <objects>
-                <viewController id="bIs-EY-tea" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="2cC-na-bJf"/>
-                        <viewControllerLayoutGuide type="bottom" id="Xp8-fQ-JPb"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="6we-C1-VJY">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.59856682930000005" green="1" blue="0.54865737169999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Vuh-yi-C0Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1642" y="237"/>
         </scene>
     </scenes>
 </document>

@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YZMusicPlayingViewController">
+            <connections>
+                <outlet property="musicBagImage" destination="uTd-fe-2FI" id="vqO-sE-UZo"/>
+                <outlet property="singerNameLabel" destination="hQR-5P-P0i" id="izx-Hr-oVZ"/>
+                <outlet property="songNameLabel" destination="zha-Ep-3C1" id="O17-ew-k8Y"/>
+                <outlet property="view" destination="7jp-17-FJU" id="T55-u5-1OU"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="7jp-17-FJU">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OCp-8H-UBO" userLabel="顶部">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="577"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play_cover_pic_bg" translatesAutoresizingMaskIntoConstraints="NO" id="uTd-fe-2FI" userLabel="歌曲图片">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="577"/>
+                        </imageView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZUR-Xv-Kbs" userLabel="名字背景">
+                            <rect key="frame" x="0.0" y="527" width="375" height="50"/>
+                            <subviews>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zha-Ep-3C1" userLabel="歌曲名">
+                                    <rect key="frame" x="10" y="0.0" width="355" height="21"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="21" id="Na3-XL-oJe"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQR-5P-P0i" userLabel="歌手名">
+                                    <rect key="frame" x="10" y="21" width="355" height="21"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="t5D-bo-DDi"/>
+                                        <constraint firstAttribute="height" constant="21" id="zTR-hP-pGU"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="hQR-5P-P0i" firstAttribute="top" secondItem="zha-Ep-3C1" secondAttribute="bottom" id="02K-J2-DKv"/>
+                                <constraint firstAttribute="trailing" secondItem="hQR-5P-P0i" secondAttribute="trailing" constant="10" id="0CJ-dg-OXz"/>
+                                <constraint firstAttribute="height" constant="50" id="91j-s1-BEA"/>
+                                <constraint firstItem="zha-Ep-3C1" firstAttribute="top" secondItem="ZUR-Xv-Kbs" secondAttribute="top" id="99P-qV-7yZ"/>
+                                <constraint firstItem="zha-Ep-3C1" firstAttribute="leading" secondItem="ZUR-Xv-Kbs" secondAttribute="leading" constant="10" id="F5E-fI-JpG"/>
+                                <constraint firstItem="hQR-5P-P0i" firstAttribute="leading" secondItem="ZUR-Xv-Kbs" secondAttribute="leading" constant="10" id="TG9-4A-K5W"/>
+                                <constraint firstAttribute="trailing" secondItem="zha-Ep-3C1" secondAttribute="trailing" constant="10" id="Zqc-uv-lUh"/>
+                            </constraints>
+                        </view>
+                        <button hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aXO-W2-Yqd" userLabel="显示拖拽进度">
+                            <rect key="frame" x="139" y="350" width="42" height="25"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <state key="normal" title="1:30">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                        </button>
+                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="puH-f7-QyK" userLabel="歌词显示控件" customClass="HMLrcView">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="577"/>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c2k-95-ew6" userLabel="退出">
+                            <rect key="frame" x="10" y="30" width="42" height="48"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="48" id="5DS-ph-Brg"/>
+                                <constraint firstAttribute="width" constant="42" id="PxI-7X-pOP"/>
+                            </constraints>
+                            <state key="normal" backgroundImage="quit">
+                                <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="exit" destination="-1" eventType="touchUpInside" id="7M6-UV-8sa"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WXV-sO-aen" userLabel="词图">
+                            <rect key="frame" x="323" y="30" width="42" height="48"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="42" id="5iD-sJ-eAQ"/>
+                                <constraint firstAttribute="height" constant="48" id="YAP-Mh-KAp"/>
+                            </constraints>
+                            <state key="normal" backgroundImage="lyric_normal">
+                                <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <state key="selected" backgroundImage="pic_normal"/>
+                            <connections>
+                                <action selector="lyricOrPic:" destination="-1" eventType="touchUpInside" id="wMA-IK-kTJ"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="ZUR-Xv-Kbs" secondAttribute="bottom" id="09K-hS-oRD"/>
+                        <constraint firstItem="uTd-fe-2FI" firstAttribute="leading" secondItem="OCp-8H-UBO" secondAttribute="leading" id="0mA-c3-SJa"/>
+                        <constraint firstItem="uTd-fe-2FI" firstAttribute="top" secondItem="OCp-8H-UBO" secondAttribute="top" id="1e1-g4-hgi"/>
+                        <constraint firstItem="c2k-95-ew6" firstAttribute="leading" secondItem="OCp-8H-UBO" secondAttribute="leading" constant="10" id="9hg-Fz-p4f"/>
+                        <constraint firstAttribute="trailing" secondItem="uTd-fe-2FI" secondAttribute="trailing" id="9j6-gh-WAx"/>
+                        <constraint firstItem="puH-f7-QyK" firstAttribute="top" secondItem="OCp-8H-UBO" secondAttribute="top" id="AjR-aF-3V3"/>
+                        <constraint firstItem="puH-f7-QyK" firstAttribute="leading" secondItem="OCp-8H-UBO" secondAttribute="leading" id="F6O-WM-2Fv"/>
+                        <constraint firstItem="c2k-95-ew6" firstAttribute="top" secondItem="OCp-8H-UBO" secondAttribute="top" constant="30" id="MdG-eT-qAP"/>
+                        <constraint firstItem="ZUR-Xv-Kbs" firstAttribute="leading" secondItem="OCp-8H-UBO" secondAttribute="leading" id="N7V-QD-kyh"/>
+                        <constraint firstAttribute="trailing" secondItem="ZUR-Xv-Kbs" secondAttribute="trailing" id="SOP-jM-BAI"/>
+                        <constraint firstAttribute="bottom" secondItem="puH-f7-QyK" secondAttribute="bottom" id="SxL-F0-zGA"/>
+                        <constraint firstAttribute="bottom" secondItem="uTd-fe-2FI" secondAttribute="bottom" id="jAu-59-abi"/>
+                        <constraint firstAttribute="trailing" secondItem="WXV-sO-aen" secondAttribute="trailing" constant="10" id="lfm-Ae-2le"/>
+                        <constraint firstItem="WXV-sO-aen" firstAttribute="top" secondItem="OCp-8H-UBO" secondAttribute="top" constant="30" id="mif-yu-oAd"/>
+                        <constraint firstAttribute="trailing" secondItem="puH-f7-QyK" secondAttribute="trailing" id="psJ-39-lS2"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="geH-um-ZAM" userLabel="底部">
+                    <rect key="frame" x="0.0" y="572" width="375" height="95"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VhY-xF-KWr" userLabel="播放控制面板">
+                            <rect key="frame" x="0.0" y="15" width="375" height="80"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YRg-uQ-UBt" userLabel="播放">
+                                    <rect key="frame" x="151.5" y="17" width="72" height="46"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="46" id="IRY-XI-ldU"/>
+                                        <constraint firstAttribute="width" constant="72" id="hnS-Dv-Oec"/>
+                                    </constraints>
+                                    <state key="normal" backgroundImage="play">
+                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <state key="selected" backgroundImage="pause"/>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Yt-WQ-tja" userLabel="上一首">
+                                    <rect key="frame" x="95.5" y="17" width="41" height="46"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="41" id="dqS-Zq-3YV"/>
+                                        <constraint firstAttribute="height" constant="46" id="lW4-ev-f63"/>
+                                    </constraints>
+                                    <state key="normal" backgroundImage="previous">
+                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="previousMusic:" destination="-1" eventType="touchUpInside" id="cCl-w6-Atp"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wcm-ya-xSo" userLabel="下一首">
+                                    <rect key="frame" x="238.5" y="17" width="41" height="46"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="46" id="AWb-Td-J4G"/>
+                                        <constraint firstAttribute="width" constant="41" id="D4s-jS-i88"/>
+                                    </constraints>
+                                    <state key="normal" backgroundImage="next">
+                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="nextMusic:" destination="-1" eventType="touchUpInside" id="D9X-q4-ceN"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="0.91372549020000005" green="0.92156862750000001" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="YRg-uQ-UBt" firstAttribute="centerY" secondItem="VhY-xF-KWr" secondAttribute="centerY" id="Eh8-xM-oIb"/>
+                                <constraint firstAttribute="centerX" secondItem="YRg-uQ-UBt" secondAttribute="centerX" id="N2x-Py-UPH"/>
+                                <constraint firstItem="wcm-ya-xSo" firstAttribute="leading" secondItem="YRg-uQ-UBt" secondAttribute="trailing" constant="15" id="dgQ-cI-eOd"/>
+                                <constraint firstItem="6Yt-WQ-tja" firstAttribute="centerY" secondItem="YRg-uQ-UBt" secondAttribute="centerY" id="enV-vt-NXT"/>
+                                <constraint firstAttribute="height" constant="80" id="g5V-xN-Yyl"/>
+                                <constraint firstItem="wcm-ya-xSo" firstAttribute="centerY" secondItem="YRg-uQ-UBt" secondAttribute="centerY" id="icv-E9-7F8"/>
+                                <constraint firstItem="YRg-uQ-UBt" firstAttribute="leading" secondItem="6Yt-WQ-tja" secondAttribute="trailing" constant="15" id="y26-On-mz6"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S80-6X-FnS" userLabel="进度条背景">
+                            <rect key="frame" x="0.0" y="5" width="375" height="10"/>
+                            <subviews>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9yd-a1-Qig" userLabel="时长">
+                                    <rect key="frame" x="328" y="0.0" width="42" height="10"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="42" id="pVb-PI-gEF"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uoA-4I-6zt" userLabel="进度条">
+                                    <rect key="frame" x="0.0" y="0.0" width="21" height="10"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.062745098040000002" green="0.51372549020000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" red="0.74682474139999999" green="0.7679386735" blue="0.82546192409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="9yd-a1-Qig" firstAttribute="top" secondItem="S80-6X-FnS" secondAttribute="top" id="LdN-ow-u4p"/>
+                                <constraint firstAttribute="height" constant="10" id="Rce-lp-Dtm"/>
+                                <constraint firstAttribute="bottom" secondItem="9yd-a1-Qig" secondAttribute="bottom" id="rdK-CB-QZt"/>
+                                <constraint firstAttribute="trailing" secondItem="9yd-a1-Qig" secondAttribute="trailing" constant="5" id="xqT-Qx-evG"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LAG-vm-rhh" userLabel="滑块">
+                            <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                            <state key="normal" backgroundImage="process_thumb">
+                                <color key="titleColor" red="0.26813900470000002" green="0.30172061919999998" blue="0.37128099799999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="S80-6X-FnS" firstAttribute="leading" secondItem="geH-um-ZAM" secondAttribute="leading" id="Eln-4W-q17"/>
+                        <constraint firstAttribute="trailing" secondItem="VhY-xF-KWr" secondAttribute="trailing" id="GbU-ho-QJl"/>
+                        <constraint firstAttribute="bottom" secondItem="VhY-xF-KWr" secondAttribute="bottom" id="dWR-0B-xhf"/>
+                        <constraint firstAttribute="trailing" secondItem="S80-6X-FnS" secondAttribute="trailing" id="ey2-m8-evy"/>
+                        <constraint firstItem="VhY-xF-KWr" firstAttribute="top" secondItem="S80-6X-FnS" secondAttribute="bottom" id="gR8-Kx-bhx"/>
+                        <constraint firstAttribute="height" constant="95" id="s0R-nl-hvA"/>
+                        <constraint firstItem="VhY-xF-KWr" firstAttribute="leading" secondItem="geH-um-ZAM" secondAttribute="leading" id="zwr-V9-5BE"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="OCp-8H-UBO" firstAttribute="top" secondItem="7jp-17-FJU" secondAttribute="top" id="0Jv-9j-rMI"/>
+                <constraint firstItem="OCp-8H-UBO" firstAttribute="leading" secondItem="7jp-17-FJU" secondAttribute="leading" id="JAd-fF-wff"/>
+                <constraint firstAttribute="trailing" secondItem="OCp-8H-UBO" secondAttribute="trailing" id="K0Y-xz-byi"/>
+                <constraint firstAttribute="trailing" secondItem="geH-um-ZAM" secondAttribute="trailing" id="L7a-WF-b2S"/>
+                <constraint firstItem="OCp-8H-UBO" firstAttribute="bottom" secondItem="geH-um-ZAM" secondAttribute="top" constant="5" id="Ra9-Te-ZAq"/>
+                <constraint firstAttribute="bottom" secondItem="geH-um-ZAM" secondAttribute="bottom" id="ZJr-bR-hGb"/>
+                <constraint firstItem="geH-um-ZAM" firstAttribute="leading" secondItem="7jp-17-FJU" secondAttribute="leading" id="yum-hb-8oI"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="lyric_normal" width="41" height="48"/>
+        <image name="next" width="41" height="46"/>
+        <image name="pause" width="72" height="46"/>
+        <image name="pic_normal" width="41" height="48"/>
+        <image name="play" width="72" height="46"/>
+        <image name="play_cover_pic_bg" width="320" height="320"/>
+        <image name="previous" width="41" height="46"/>
+        <image name="process_thumb" width="41" height="21"/>
+        <image name="quit" width="41" height="48"/>
+    </resources>
+</document>
