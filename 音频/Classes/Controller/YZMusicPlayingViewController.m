@@ -52,7 +52,7 @@
     [UIView animateWithDuration:0.25 animations:^{
         self.view.y = 0;
     } completion:^(BOOL finished) {
-        [self setupPlayingMusic];
+        [self startPlayingMusic];
         window.userInteractionEnabled = YES;
     }];
     
@@ -72,10 +72,11 @@
 }
 
 /**
- 初始化音乐数据
+ 初始化音乐数据，开始播放音乐
  */
-- (void)setupPlayingMusic
+- (void)startPlayingMusic
 {
+    //如果新歌跟正在播放的歌是同一个，则不用进入下面，直接返回
     if(self.playingMusic == [YZMusicTool playingMusic]) return;
     
     YZMusic *playingMusic = [YZMusicTool playingMusic];
@@ -105,11 +106,36 @@
 
 - (IBAction)lyricOrPic:(UIButton *)sender {
 }
+
 - (IBAction)nextMusic:(UIButton *)sender {
-    [YZMusicTool nextMusic];
+    
+    //重置上首音乐
+    [self resetPlayingMusic];
+    
+    //获得下一曲歌曲
+    [YZMusicTool setPlayingMusic:[YZMusicTool nextMusic]];
+    
+    //播放音乐
+    [self startPlayingMusic];
+    
+    
+    /**
+    [YZAudioTool stopMusic:self.playingMusic.filename];
+    
+    YZMusic *nextMusic = [YZMusicTool nextMusic];
+    [YZAudioTool playMusic:nextMusic.filename];
+    
+    self.playingMusic = nextMusic;
+    
+    [self startPlayingMusic];
+     */
 }
 
 - (IBAction)previousMusic:(UIButton *)sender {
-    [YZMusicTool previousMusic];
+    [YZAudioTool stopMusic:self.playingMusic.filename];
+    YZMusic *previousMusic = [YZMusicTool previousMusic];
+    [YZAudioTool playMusic:previousMusic.filename];
+    
+    self.playingMusic = previousMusic;
 }
 @end
