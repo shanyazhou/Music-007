@@ -29,9 +29,12 @@
 @property (weak, nonatomic) IBOutlet UIButton *slideBtn;
 @property (weak, nonatomic) IBOutlet UILabel *durationLabel;
 @property (weak, nonatomic) IBOutlet UIView *progressView;
+- (IBAction)tapProgressBg:(UITapGestureRecognizer *)sender;
 
 - (IBAction)nextMusic:(UIButton *)sender;
 - (IBAction)previousMusic:(UIButton *)sender;
+- (IBAction)panSlider:(UIPanGestureRecognizer *)sender;
+
 
 @end
 
@@ -75,7 +78,6 @@
  */
 - (void)resetPlayingMusic
 {
-    
     self.musicBagImage.image = [UIImage imageNamed:@"play_cover_pic_bg"];
     self.songNameLabel.text = nil;
     self.singerNameLabel.text = nil;
@@ -137,15 +139,16 @@
     self.currentTimeTimer = nil;
 }
 
+
+/**
+ 更新时间
+ */
 - (void)updataTime
 {
     //计算进度值
     double progress = self.player.currentTime / self.player.duration;
     self.slideBtn.x = (self.view.width - self.slideBtn.width) * progress;
-    
-    
-    //进度条的长度=view的宽度-滑块的中间x值
-    self.progressView.width = self.slideBtn.center.x;
+    self.progressView.width = self.slideBtn.center.x;//进度条的长度=滑块的中间x值；无关紧要，只是好看
     [self.slideBtn setTitle:[self strWithTime:self.player.currentTime] forState:UIControlStateNormal];
 }
 
@@ -170,6 +173,16 @@
 }
 
 - (IBAction)lyricOrPic:(UIButton *)sender {
+}
+
+/**
+ 点击进度条
+ */
+- (IBAction)tapProgressBg:(UITapGestureRecognizer *)sender {
+    
+    CGPoint point = [sender locationInView:sender.view];
+    self.player.currentTime = (point.x / sender.view.width) * self.player.duration;
+    [self updataTime];
 }
 
 - (IBAction)nextMusic:(UIButton *)sender {
@@ -203,4 +216,36 @@
     
     self.playingMusic = previousMusic;
 }
+
+
+/**
+ 拖动滑块
+ */
+- (IBAction)panSlider:(UIPanGestureRecognizer *)sender {
+    
+    CGPoint translation = [sender translationInView:sender.view];//获得挪动的距离
+    [sender setTranslation:CGPointZero inView:sender.view];//挪动一点后清空
+    
+    self.slideBtn.x += translation.x;//滑块的x值=原来的值+挪动的x距离值
+    self.progressView.width = self.slideBtn.center.x;//就为了好看
+    
+    //设置时间值
+    //记住一点：当前时间/总时间=当前滑块的x值/（屏幕宽度-滑块宽度）
+    double progress = self.slideBtn.x / (self.view.width - self.slideBtn.width);
+    NSTimeInterval time = self.player.duration * progress;
+    [self.slideBtn setTitle:[self strWithTime:time] forState:UIControlStateNormal];
+    
+    if(sender.state == UIGestureRecognizerStateBegan){
+        //停止定时器
+        [self removeCurrentTime];
+    }else if(sender.state == UIGestureRecognizerStateEnded){
+        //设置播放器的时间
+        self.player.currentTime = time;//主要是改了currentTime，所以音乐才可以改变播放位置，后面的定时器啥的，只是改变滑块与进度条的位置。
+        
+        //开始定时器
+        [self addCurrentTime];
+    }
+    
+}
+
 @end
