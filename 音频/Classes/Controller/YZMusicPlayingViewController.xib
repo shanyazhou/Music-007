@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="currentTimeView" destination="aXO-W2-Yqd" id="c29-9G-W4K"/>
                 <outlet property="durationLabel" destination="9yd-a1-Qig" id="MU6-gU-9OK"/>
+                <outlet property="lrcView" destination="JiH-eq-4Lm" id="Y42-Hn-WeD"/>
                 <outlet property="musicBagImage" destination="uTd-fe-2FI" id="vqO-sE-UZo"/>
                 <outlet property="playOrPauseBtn" destination="YRg-uQ-UBt" id="ahJ-qJ-WvB"/>
                 <outlet property="progressView" destination="uoA-4I-6zt" id="LrC-Rb-0jR"/>
@@ -65,6 +66,10 @@
                                 <constraint firstAttribute="trailing" secondItem="zha-Ep-3C1" secondAttribute="trailing" constant="10" id="Zqc-uv-lUh"/>
                             </constraints>
                         </view>
+                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JiH-eq-4Lm" userLabel="歌词View" customClass="YZLrcView">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="577"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </view>
                         <button hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aXO-W2-Yqd" userLabel="显示拖拽进度">
                             <rect key="frame" x="139" y="350" width="42" height="25"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -75,10 +80,6 @@
                                 <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                         </button>
-                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="puH-f7-QyK" userLabel="歌词显示控件" customClass="HMLrcView">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="577"/>
-                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                        </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c2k-95-ew6" userLabel="退出">
                             <rect key="frame" x="10" y="30" width="42" height="48"/>
                             <constraints>
@@ -114,16 +115,16 @@
                         <constraint firstItem="uTd-fe-2FI" firstAttribute="top" secondItem="OCp-8H-UBO" secondAttribute="top" id="1e1-g4-hgi"/>
                         <constraint firstItem="c2k-95-ew6" firstAttribute="leading" secondItem="OCp-8H-UBO" secondAttribute="leading" constant="10" id="9hg-Fz-p4f"/>
                         <constraint firstAttribute="trailing" secondItem="uTd-fe-2FI" secondAttribute="trailing" id="9j6-gh-WAx"/>
-                        <constraint firstItem="puH-f7-QyK" firstAttribute="top" secondItem="OCp-8H-UBO" secondAttribute="top" id="AjR-aF-3V3"/>
-                        <constraint firstItem="puH-f7-QyK" firstAttribute="leading" secondItem="OCp-8H-UBO" secondAttribute="leading" id="F6O-WM-2Fv"/>
                         <constraint firstItem="c2k-95-ew6" firstAttribute="top" secondItem="OCp-8H-UBO" secondAttribute="top" constant="30" id="MdG-eT-qAP"/>
                         <constraint firstItem="ZUR-Xv-Kbs" firstAttribute="leading" secondItem="OCp-8H-UBO" secondAttribute="leading" id="N7V-QD-kyh"/>
+                        <constraint firstAttribute="bottom" secondItem="JiH-eq-4Lm" secondAttribute="bottom" id="Oyw-Db-6rO"/>
+                        <constraint firstItem="JiH-eq-4Lm" firstAttribute="top" secondItem="OCp-8H-UBO" secondAttribute="top" id="RFB-uk-hxa"/>
                         <constraint firstAttribute="trailing" secondItem="ZUR-Xv-Kbs" secondAttribute="trailing" id="SOP-jM-BAI"/>
-                        <constraint firstAttribute="bottom" secondItem="puH-f7-QyK" secondAttribute="bottom" id="SxL-F0-zGA"/>
+                        <constraint firstAttribute="trailing" secondItem="JiH-eq-4Lm" secondAttribute="trailing" id="cQs-of-hIC"/>
                         <constraint firstAttribute="bottom" secondItem="uTd-fe-2FI" secondAttribute="bottom" id="jAu-59-abi"/>
                         <constraint firstAttribute="trailing" secondItem="WXV-sO-aen" secondAttribute="trailing" constant="10" id="lfm-Ae-2le"/>
                         <constraint firstItem="WXV-sO-aen" firstAttribute="top" secondItem="OCp-8H-UBO" secondAttribute="top" constant="30" id="mif-yu-oAd"/>
-                        <constraint firstAttribute="trailing" secondItem="puH-f7-QyK" secondAttribute="trailing" id="psJ-39-lS2"/>
+                        <constraint firstItem="JiH-eq-4Lm" firstAttribute="leading" secondItem="OCp-8H-UBO" secondAttribute="leading" id="n5s-am-L8r"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="geH-um-ZAM" userLabel="底部">

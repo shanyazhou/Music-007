@@ -63,6 +63,10 @@
 		123D03361F3878F50091CB5B /* NSObject+MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 123D03231F3878F50091CB5B /* NSObject+MJProperty.m */; };
 		123D03371F3878F50091CB5B /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 123D03251F3878F50091CB5B /* NSString+MJExtension.m */; };
 		123D03381F3878F50091CB5B /* YZAudioTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 123D03281F3878F50091CB5B /* YZAudioTool.m */; };
+		12A55DB11F56B90C001B2B23 /* DRNRealTimeBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A55DAE1F56B90C001B2B23 /* DRNRealTimeBlurView.m */; };
+		12A55DB21F56B90C001B2B23 /* UIImage+BoxBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A55DB01F56B90C001B2B23 /* UIImage+BoxBlur.m */; };
+		12A55DB51F56B933001B2B23 /* YZLrcView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A55DB41F56B933001B2B23 /* YZLrcView.m */; };
+		12A55DB81F56CB47001B2B23 /* YZLrcLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A55DB71F56CB47001B2B23 /* YZLrcLine.m */; };
 		12A6292F1F41758900663CDB /* UIImage+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A6292C1F41758900663CDB /* UIImage+MJ.m */; };
 		12A629301F41758900663CDB /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A6292E1F41758900663CDB /* UIView+Extension.m */; };
 		12A629351F41793600663CDB /* YZMusicPlayingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A629331F41793600663CDB /* YZMusicPlayingViewController.m */; };
@@ -159,6 +163,14 @@
 		123D03281F3878F50091CB5B /* YZAudioTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZAudioTool.m; sourceTree = "<group>"; };
 		126204591F39CEA50093AB0C /* YZMusicTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZMusicTableViewCell.h; sourceTree = "<group>"; };
 		1262045A1F39CEA50093AB0C /* YZMusicTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZMusicTableViewCell.m; sourceTree = "<group>"; };
+		12A55DAD1F56B90C001B2B23 /* DRNRealTimeBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRNRealTimeBlurView.h; sourceTree = "<group>"; };
+		12A55DAE1F56B90C001B2B23 /* DRNRealTimeBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRNRealTimeBlurView.m; sourceTree = "<group>"; };
+		12A55DAF1F56B90C001B2B23 /* UIImage+BoxBlur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BoxBlur.h"; sourceTree = "<group>"; };
+		12A55DB01F56B90C001B2B23 /* UIImage+BoxBlur.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BoxBlur.m"; sourceTree = "<group>"; };
+		12A55DB31F56B933001B2B23 /* YZLrcView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZLrcView.h; sourceTree = "<group>"; };
+		12A55DB41F56B933001B2B23 /* YZLrcView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZLrcView.m; sourceTree = "<group>"; };
+		12A55DB61F56CB47001B2B23 /* YZLrcLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZLrcLine.h; sourceTree = "<group>"; };
+		12A55DB71F56CB47001B2B23 /* YZLrcLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZLrcLine.m; sourceTree = "<group>"; };
 		12A6292B1F41758900663CDB /* UIImage+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MJ.h"; sourceTree = "<group>"; };
 		12A6292C1F41758900663CDB /* UIImage+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MJ.m"; sourceTree = "<group>"; };
 		12A6292D1F41758900663CDB /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
@@ -346,6 +358,8 @@
 				123D030C1F3878F50091CB5B /* YZMusic.m */,
 				12D2A3C81F3AE5FF00F53AEB /* YZListenBook.h */,
 				12D2A3C91F3AE5FF00F53AEB /* YZListenBook.m */,
+				12A55DB61F56CB47001B2B23 /* YZLrcLine.h */,
+				12A55DB71F56CB47001B2B23 /* YZLrcLine.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -355,6 +369,7 @@
 			children = (
 				123D030E1F3878F50091CB5B /* AppDelegate.h */,
 				123D030F1F3878F50091CB5B /* AppDelegate.m */,
+				12A55DAC1F56B90C001B2B23 /* DRNRealTimeBlur */,
 				123D03261F3878F50091CB5B /* Tool */,
 				12A6292A1F41758900663CDB /* Category */,
 				123D03101F3878F50091CB5B /* MJExtension */,
@@ -409,8 +424,21 @@
 				1262045A1F39CEA50093AB0C /* YZMusicTableViewCell.m */,
 				12EFA6131F39BF0700CAA285 /* YZMusicTableViewCell.h */,
 				12EFA6141F39BF0700CAA285 /* YZMusicTableViewCell.m */,
+				12A55DB31F56B933001B2B23 /* YZLrcView.h */,
+				12A55DB41F56B933001B2B23 /* YZLrcView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		12A55DAC1F56B90C001B2B23 /* DRNRealTimeBlur */ = {
+			isa = PBXGroup;
+			children = (
+				12A55DAD1F56B90C001B2B23 /* DRNRealTimeBlurView.h */,
+				12A55DAE1F56B90C001B2B23 /* DRNRealTimeBlurView.m */,
+				12A55DAF1F56B90C001B2B23 /* UIImage+BoxBlur.h */,
+				12A55DB01F56B90C001B2B23 /* UIImage+BoxBlur.m */,
+			);
+			path = DRNRealTimeBlur;
 			sourceTree = "<group>";
 		};
 		12A6292A1F41758900663CDB /* Category */ = {
@@ -567,8 +595,10 @@
 				123D032C1F3878F50091CB5B /* YZMusic.m in Sources */,
 				123D032F1F3878F50091CB5B /* MJFoundation.m in Sources */,
 				123D03351F3878F50091CB5B /* NSObject+MJKeyValue.m in Sources */,
+				12A55DB51F56B933001B2B23 /* YZLrcView.m in Sources */,
 				123D032A1F3878F50091CB5B /* YZViewController.m in Sources */,
 				123D03301F3878F50091CB5B /* MJProperty.m in Sources */,
+				12A55DB11F56B90C001B2B23 /* DRNRealTimeBlurView.m in Sources */,
 				12A629301F41758900663CDB /* UIView+Extension.m in Sources */,
 				12A6292F1F41758900663CDB /* UIImage+MJ.m in Sources */,
 				123D03311F3878F50091CB5B /* MJPropertyKey.m in Sources */,
@@ -576,6 +606,8 @@
 				12D2A3BB1F3ABA5600F53AEB /* YZRecordViewController.m in Sources */,
 				123D03321F3878F50091CB5B /* MJPropertyType.m in Sources */,
 				123D03331F3878F50091CB5B /* NSObject+MJClass.m in Sources */,
+				12A55DB21F56B90C001B2B23 /* UIImage+BoxBlur.m in Sources */,
+				12A55DB81F56CB47001B2B23 /* YZLrcLine.m in Sources */,
 				123D03371F3878F50091CB5B /* NSString+MJExtension.m in Sources */,
 				123D026B1F38341C0091CB5B /* main.m in Sources */,
 				123D03361F3878F50091CB5B /* NSObject+MJProperty.m in Sources */,

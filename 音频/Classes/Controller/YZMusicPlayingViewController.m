@@ -11,8 +11,9 @@
 #import "YZMusic.h"
 #import "YZMusicTool.h"
 #import "YZAudioTool.h"
+#import "YZLrcView.h"
 
-@interface YZMusicPlayingViewController ()
+@interface YZMusicPlayingViewController ()<AVAudioPlayerDelegate,AVAudioSessionDelegate>
 
 /**
  当前进度的 定时器
@@ -29,6 +30,7 @@
 @property (weak, nonatomic) IBOutlet UIView *progressView;
 @property (weak, nonatomic) IBOutlet UIButton *currentTimeView;
 @property (weak, nonatomic) IBOutlet UIButton *playOrPauseBtn;
+@property (weak, nonatomic) IBOutlet YZLrcView *lrcView;
 
 - (IBAction)exit;
 - (IBAction)lyricOrPic:(UIButton *)sender;
@@ -106,19 +108,22 @@
         return;
     }
     
-    YZMusic *playingMusic = [YZMusicTool playingMusic];
-    self.playingMusic = playingMusic;
-    self.player = [YZAudioTool playMusic:playingMusic.filename];
+    self.playingMusic = [YZMusicTool playingMusic];
+    self.player = [YZAudioTool playMusic:self.playingMusic.filename];
+    self.player.delegate = self;
     self.durationLabel.text = [self strWithTime:self.player.duration];
     
-    self.musicBagImage.image = [UIImage imageNamed:playingMusic.icon];
-    self.songNameLabel.text = playingMusic.name;
-    self.singerNameLabel.text = playingMusic.singer;
+    self.musicBagImage.image = [UIImage imageNamed:self.playingMusic.icon];
+    self.songNameLabel.text = self.playingMusic.name;
+    self.singerNameLabel.text = self.playingMusic.singer;
     
     self.playOrPauseBtn.selected = YES;
     
     //开启监听进度的定时器
     [self addCurrentTime];
+    
+    //加载歌词
+    self.lrcView.lrcname = self.playingMusic.lrcname;
     
 }
 
@@ -181,6 +186,15 @@
 }
 
 - (IBAction)lyricOrPic:(UIButton *)sender {
+    
+    if(sender.selected)//被选中，需要变图
+    {
+        sender.selected = NO;
+        self.lrcView.hidden = YES;
+    }else{//没有选中，正常情况下，点击变词
+        sender.selected = YES;
+        self.lrcView.hidden = NO;
+    }
 }
 
 /**
@@ -279,7 +293,7 @@
         //设置播放器的时间
         self.player.currentTime = time;//主要是改了currentTime，所以音乐才可以改变播放位置，后面的定时器啥的，只是改变滑块与进度条的位置。
         self.currentTimeView.hidden = YES;
-        if(self.playingMusic.playing)//手松开后，如果音乐在播放才需要开启定时器
+        if(self.player.playing)//手松开后，如果音乐在播放才需要开启定时器
         {
             //开始定时器
             [self addCurrentTime];
@@ -288,4 +302,27 @@
     
 }
 
+#pragma mark - AVAudioPlayerDelegate
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
+{
+    [self nextMusic:nil];
+}
+
+//ios8之前用这个
+- (void)audioPlayerBeginInterruption:(AVAudioPlayer *)player
+{
+    if(self.player.isPlaying)
+    {
+        [self playOrPause];
+    }
+}
+
+//ios8之后用这个
+- (void)beginInterruption
+{
+    if(self.player.isPlaying)
+    {
+        [self playOrPause];
+    }
+}
 @end
