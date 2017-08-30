@@ -21,20 +21,21 @@
 @property (strong, nonatomic) AVAudioPlayer *player;
 @property (strong, nonatomic) YZMusic *playingMusic;
 
-- (IBAction)exit;
-- (IBAction)lyricOrPic:(UIButton *)sender;
 @property (weak, nonatomic) IBOutlet UIImageView *musicBagImage;
 @property (weak, nonatomic) IBOutlet UILabel *songNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *singerNameLabel;
 @property (weak, nonatomic) IBOutlet UIButton *slideBtn;
 @property (weak, nonatomic) IBOutlet UILabel *durationLabel;
 @property (weak, nonatomic) IBOutlet UIView *progressView;
-- (IBAction)tapProgressBg:(UITapGestureRecognizer *)sender;
+@property (weak, nonatomic) IBOutlet UIButton *currentTimeView;
+@property (weak, nonatomic) IBOutlet UIButton *playOrPauseBtn;
 
+- (IBAction)exit;
+- (IBAction)lyricOrPic:(UIButton *)sender;
+- (IBAction)tapProgressBg:(UITapGestureRecognizer *)sender;
 - (IBAction)nextMusic:(UIButton *)sender;
 - (IBAction)previousMusic:(UIButton *)sender;
 - (IBAction)panSlider:(UIPanGestureRecognizer *)sender;
-
 
 @end
 
@@ -43,6 +44,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.currentTimeView.layer.cornerRadius = 10;
 }
 
 - (void)show
@@ -87,6 +89,8 @@
     [YZAudioTool stopMusic:self.playingMusic.filename];
     self.player = nil;
     
+    self.playOrPauseBtn.selected = NO;
+    
     //关闭进度定时器
     [self removeCurrentTime];
 }
@@ -111,6 +115,8 @@
     self.songNameLabel.text = playingMusic.name;
     self.singerNameLabel.text = playingMusic.singer;
     
+    self.playOrPauseBtn.selected = YES;
+    
     //开启监听进度的定时器
     [self addCurrentTime];
     
@@ -126,6 +132,8 @@
 #pragma mark - 当前进度定时器的处理
 - (void)addCurrentTime
 {
+    [self removeCurrentTime];//添加新的之前，把老的去掉
+    
     [self updataTime];//因为定时器是在1s之后才执行的，会有一个1s钟的空白，自己先调用一下，不要空白
     
     self.currentTimeTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updataTime) userInfo:nil repeats:YES];
@@ -179,14 +187,26 @@
  点击进度条
  */
 - (IBAction)tapProgressBg:(UITapGestureRecognizer *)sender {
-    
     CGPoint point = [sender locationInView:sender.view];
     self.player.currentTime = (point.x / sender.view.width) * self.player.duration;
     [self updataTime];
 }
 
+- (IBAction)playOrPause {
+    if (self.playOrPauseBtn.isSelected) {//暂停
+        self.playOrPauseBtn.selected = NO;
+        [YZAudioTool pauseMusic:self.playingMusic.filename];
+        [self removeCurrentTime];
+    }else{//播放
+        self.playOrPauseBtn.selected = YES;
+        [YZAudioTool playMusic:self.playingMusic.filename];
+        [self addCurrentTime];
+    }
+}
+
 - (IBAction)nextMusic:(UIButton *)sender {
-    
+    UIWindow *window = [[UIApplication sharedApplication].windows lastObject];
+    window.userInteractionEnabled = NO;
     //重置上首音乐
     [self resetPlayingMusic];
     
@@ -195,7 +215,7 @@
     
     //播放音乐
     [self startPlayingMusic];
-    
+    window.userInteractionEnabled = YES;
     
     /**
     [YZAudioTool stopMusic:self.playingMusic.filename];
@@ -210,11 +230,16 @@
 }
 
 - (IBAction)previousMusic:(UIButton *)sender {
-    [YZAudioTool stopMusic:self.playingMusic.filename];
-    YZMusic *previousMusic = [YZMusicTool previousMusic];
-    [YZAudioTool playMusic:previousMusic.filename];
+    UIWindow *window = [[UIApplication sharedApplication].windows lastObject];
+    window.userInteractionEnabled = NO;
     
-    self.playingMusic = previousMusic;
+    [self resetPlayingMusic];
+    
+    [YZMusicTool setPlayingMusic:[YZMusicTool previousMusic]];
+    
+    [self startPlayingMusic];
+    
+    window.userInteractionEnabled = YES;
 }
 
 
@@ -227,23 +252,38 @@
     [sender setTranslation:CGPointZero inView:sender.view];//挪动一点后清空
     
     self.slideBtn.x += translation.x;//滑块的x值=原来的值+挪动的x距离值
+    double sildeMaxWidth = self.view.width - self.slideBtn.width;
+    if(self.slideBtn.x < 0)
+    {
+        self.slideBtn.x = 0;
+    }else if(self.slideBtn.x > sildeMaxWidth)
+    {
+        self.slideBtn.x = sildeMaxWidth;
+    }
+    
     self.progressView.width = self.slideBtn.center.x;//就为了好看
     
     //设置时间值
     //记住一点：当前时间/总时间=当前滑块的x值/（屏幕宽度-滑块宽度）
-    double progress = self.slideBtn.x / (self.view.width - self.slideBtn.width);
+    double progress = self.slideBtn.x / sildeMaxWidth;
     NSTimeInterval time = self.player.duration * progress;
     [self.slideBtn setTitle:[self strWithTime:time] forState:UIControlStateNormal];
-    
+    [self.currentTimeView setTitle:[self strWithTime:time] forState:UIControlStateNormal];
+    self.currentTimeView.x = self.slideBtn.x;
     if(sender.state == UIGestureRecognizerStateBegan){
         //停止定时器
         [self removeCurrentTime];
+        self.currentTimeView.hidden = NO;
+        self.currentTimeView.y = self.currentTimeView.superview.height - 5 - self.currentTimeView.height;
     }else if(sender.state == UIGestureRecognizerStateEnded){
         //设置播放器的时间
         self.player.currentTime = time;//主要是改了currentTime，所以音乐才可以改变播放位置，后面的定时器啥的，只是改变滑块与进度条的位置。
-        
-        //开始定时器
-        [self addCurrentTime];
+        self.currentTimeView.hidden = YES;
+        if(self.playingMusic.playing)//手松开后，如果音乐在播放才需要开启定时器
+        {
+            //开始定时器
+            [self addCurrentTime];
+        }
     }
     
 }
