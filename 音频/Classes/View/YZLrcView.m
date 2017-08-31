@@ -10,7 +10,7 @@
 #import "YZLrcLine.h"
 @interface YZLrcView()<UITableViewDelegate, UITableViewDataSource>
 
-@property (weak, nonatomic) UITableView *tableView;
+@property (weak, nonatomic) UITableView *tableView;//控件用weak很正常
 @property (strong, nonatomic) NSMutableArray *lrcLines;
 @end
 
@@ -58,10 +58,13 @@
 - (void)setup
 {
     UITableView *tableView = [[UITableView alloc] init];
+//    NSLog(@"%p,%p",self.tableView,tableView);//模拟器真傻B
+    tableView.delegate = self;
+    tableView.dataSource = self;
+    tableView.backgroundColor = [UIColor clearColor];
+    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;//分割线不要
+    [self addSubview:tableView];
     self.tableView = tableView;
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    [self addSubview:self.tableView];
 }
 
 - (void)layoutSubviews
@@ -74,6 +77,9 @@
 - (void)setLrcname:(NSString *)lrcname
 {
     _lrcname = [lrcname copy];
+    
+    //在加载新的之前，把旧的全部移除
+    [self.lrcLines removeAllObjects];
     
     //加载歌词文件
     NSURL *url = [[NSBundle mainBundle] URLForResource:lrcname withExtension:nil];
@@ -122,12 +128,13 @@
         [self.lrcLines addObject:line];//把每一个模型，都加入到一个数组中去。
     }
     
+    [self.tableView reloadData];
 }
 
 #pragma mark - delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return self.lrcLines.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -139,8 +146,16 @@
     if(cell == nil)
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
+        cell.backgroundColor = [UIColor clearColor];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;//cell选中没反应
+        cell.textLabel.textColor = [UIColor whiteColor];
+        cell.textLabel.backgroundColor = [UIColor redColor];//cell的label就是显示的那么大，因此，居中不管用
+        cell.textAlignment = NSTextAlignmentCenter;
     }
-    cell.textLabel.text = @"111";
+    
+    YZLrcLine *line = self.lrcLines[indexPath.row];
+    
+    cell.textLabel.text = line.word;
     return cell;
 }
 
