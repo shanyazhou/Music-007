@@ -110,12 +110,12 @@
                 //方法一：
                 NSString *word1 = [[word0 componentsSeparatedByString:@"]"] firstObject];
                 
-//                //方法二：
-//                NSString *word2 = [word0 substringToIndex:word0.length - 1];
-//                
-//                //方法三：
-//                NSRange range = NSMakeRange(0, word0.length - 1);
-//                NSString *word3 = [word0 substringWithRange:range];
+                //方法二：
+                NSString *word2 = [word0 substringToIndex:word0.length - 1];
+                
+                //方法三：
+                NSRange range = NSMakeRange(0, word0.length - 1);
+                NSString *word3 = [word0 substringWithRange:range];
                 
                 
                 line.word = word1;
@@ -138,6 +138,10 @@
 
 - (void)setCurrentTime:(NSTimeInterval)currentTime
 {
+    if(currentTime<_currentTime)//如果传过来的时间<之前保存的时间
+    {
+        _currentTime = -1;
+    }
     _currentTime = currentTime;
     
     int minute = currentTime / 60;
@@ -145,7 +149,42 @@
     int msecond = (currentTime - (int)currentTime) * 100;
     NSString *currentTimeStr = [NSString stringWithFormat:@"%02d:%02d.%02d",minute,second,msecond];
     
-    //方法一：
+    
+    int count = self.lrcLines.count;
+    for (int idx = self.currentIndex + 1; idx < count; idx++) {
+        YZLrcLine *lrcLine = self.lrcLines[idx];
+        //当前模型的时间
+        NSString *currentLineTime = lrcLine.time;
+        //下一个模型的时间
+        NSString *nextLineTime = nil;
+        NSInteger nextIdx = idx + 1;
+        if(nextIdx < self.lrcLines.count)
+        {
+            YZLrcLine *nextLine = self.lrcLines[nextIdx];
+            nextLineTime = nextLine.time;
+        }
+        
+        //判断是否为 正在 播放的歌词
+        //（当前时间>=当前模型时间）&&（当前时间<下一模型时间）
+        if(([currentTimeStr compare:currentLineTime] != NSOrderedAscending) && ([currentTimeStr compare:nextLineTime] == NSOrderedAscending) && self.currentIndex != idx)
+        {
+            
+            NSArray *reloadRows = @[
+                                    [NSIndexPath indexPathForRow:self.currentIndex inSection:0],
+                                    [NSIndexPath indexPathForRow:idx inSection:0]
+                                    ];
+            
+            self.currentIndex = idx;
+            
+            [self.tableView reloadRowsAtIndexPaths:reloadRows withRowAnimation:UITableViewRowAnimationNone];
+            
+            //找到idx行号，滚动到对应位置
+            [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:idx inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+            NSLog(@"%d",idx);
+        }
+    }
+    
+    /**
     [self.lrcLines enumerateObjectsUsingBlock:^(YZLrcLine *lrcLine, NSUInteger idx, BOOL * _Nonnull stop) {
         //当前模型的时间
         NSString *currentLineTime = lrcLine.time;
@@ -178,6 +217,7 @@
             *stop = YES;
         }
     }];
+     */
     
 }
 
