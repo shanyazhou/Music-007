@@ -14,4 +14,6 @@
  歌词文件名
  */
 @property (copy, nonatomic) NSString *lrcname;
+
+@property (assign, nonatomic) NSTimeInterval currentTime;
 @end

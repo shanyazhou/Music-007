@@ -19,6 +19,11 @@
  当前进度的 定时器
  */
 @property (strong, nonatomic) NSTimer *currentTimeTimer;
+
+/**
+ 监听显示歌词的 定时器
+ */
+@property (strong, nonatomic) CADisplayLink *lrcTimer;
 @property (strong, nonatomic) AVAudioPlayer *player;
 @property (strong, nonatomic) YZMusic *playingMusic;
 
@@ -95,6 +100,7 @@
     
     //关闭进度定时器
     [self removeCurrentTime];
+    [self removeLrcTime];
 }
 
 /**
@@ -105,6 +111,7 @@
     //如果新歌跟正在播放的歌是同一个，则不用进入下面，直接返回
     if(self.playingMusic == [YZMusicTool playingMusic]) {
         [self addCurrentTime];
+        [self addLrcTime];
         return;
     }
     
@@ -121,6 +128,7 @@
     
     //开启监听进度的定时器
     [self addCurrentTime];
+    [self addLrcTime];
     
     //加载歌词
     self.lrcView.lrcname = self.playingMusic.lrcname;
@@ -137,6 +145,8 @@
 #pragma mark - 当前进度定时器的处理
 - (void)addCurrentTime
 {
+    if(self.player.isPlaying == NO) return;
+    
     [self removeCurrentTime];//添加新的之前，把老的去掉
     
     [self updataTime];//因为定时器是在1s之后才执行的，会有一个1s钟的空白，自己先调用一下，不要空白
@@ -165,12 +175,43 @@
     [self.slideBtn setTitle:[self strWithTime:self.player.currentTime] forState:UIControlStateNormal];
 }
 
+/*****************************音乐歌词的定时器*******************************************/
+
+- (void)addLrcTime
+{
+    if(self.player.isPlaying == NO || self.lrcView.isHidden) return;
+    
+    [self removeLrcTime];//添加新的之前，把老的去掉
+    
+    [self updataLrcTime];//因为定时器是在1s之后才执行的，会有一个1s钟的空白，自己先调用一下，不要空白
+    
+    self.lrcTimer = [CADisplayLink displayLinkWithTarget:self selector:@selector(updataLrcTime)];
+    
+    [self.lrcTimer addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
+}
+
+- (void)removeLrcTime
+{
+    [self.lrcTimer invalidate];
+    self.lrcTimer = nil;
+}
+
+
+/**
+ 音乐时间
+ */
+- (void)updataLrcTime
+{
+    self.lrcView.currentTime = self.player.currentTime;
+}
+
 
 #pragma mark - 事件
 - (IBAction)exit {
     
     //退出的时候，也不需要监听进度条
     [self removeCurrentTime];
+    [self removeLrcTime];
     
     UIWindow *window = [[UIApplication sharedApplication].windows lastObject];
     
@@ -191,9 +232,11 @@
     {
         sender.selected = NO;
         self.lrcView.hidden = YES;
+        [self removeLrcTime];
     }else{//没有选中，正常情况下，点击变词
         sender.selected = YES;
         self.lrcView.hidden = NO;
+        [self addLrcTime];
     }
 }
 
@@ -211,10 +254,12 @@
         self.playOrPauseBtn.selected = NO;
         [YZAudioTool pauseMusic:self.playingMusic.filename];
         [self removeCurrentTime];
+        [self removeLrcTime];
     }else{//播放
         self.playOrPauseBtn.selected = YES;
         [YZAudioTool playMusic:self.playingMusic.filename];
         [self addCurrentTime];
+        [self addLrcTime];
     }
 }
 

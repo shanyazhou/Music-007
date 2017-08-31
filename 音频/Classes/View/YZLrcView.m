@@ -8,10 +8,13 @@
 
 #import "YZLrcView.h"
 #import "YZLrcLine.h"
+#import "YZLrcTableViewCell.h"
 @interface YZLrcView()<UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) UITableView *tableView;//控件用weak很正常
 @property (strong, nonatomic) NSMutableArray *lrcLines;
+@property (assign, nonatomic) NSInteger currentIndex;
+
 @end
 
 @implementation YZLrcView
@@ -72,6 +75,9 @@
     [super layoutSubviews];
     
     self.tableView.frame = self.bounds;
+    
+    //歌词默认是在顶部的，如何做到在屏幕中间？
+    self.tableView.contentInset = UIEdgeInsetsMake(self.tableView.height * 0.5, 0, self.tableView.height * 0.3, 0);
 }
 
 - (void)setLrcname:(NSString *)lrcname
@@ -104,12 +110,12 @@
                 //方法一：
                 NSString *word1 = [[word0 componentsSeparatedByString:@"]"] firstObject];
                 
-                //方法二：
-                NSString *word2 = [word0 substringToIndex:word0.length - 1];
-                
-                //方法三：
-                NSRange range = NSMakeRange(0, word0.length - 1);
-                NSString *word3 = [word0 substringWithRange:range];
+//                //方法二：
+//                NSString *word2 = [word0 substringToIndex:word0.length - 1];
+//                
+//                //方法三：
+//                NSRange range = NSMakeRange(0, word0.length - 1);
+//                NSString *word3 = [word0 substringWithRange:range];
                 
                 
                 line.word = word1;
@@ -122,13 +128,57 @@
                 line.word = word;
             }
             
-            NSLog(@"%@,%@",line.time,line.word);
         }
         
         [self.lrcLines addObject:line];//把每一个模型，都加入到一个数组中去。
     }
     
     [self.tableView reloadData];
+}
+
+- (void)setCurrentTime:(NSTimeInterval)currentTime
+{
+    _currentTime = currentTime;
+    
+    int minute = currentTime / 60;
+    int second = (int)currentTime % 60;
+    int msecond = (currentTime - (int)currentTime) * 100;
+    NSString *currentTimeStr = [NSString stringWithFormat:@"%02d:%02d.%02d",minute,second,msecond];
+    
+    //方法一：
+    [self.lrcLines enumerateObjectsUsingBlock:^(YZLrcLine *lrcLine, NSUInteger idx, BOOL * _Nonnull stop) {
+        //当前模型的时间
+        NSString *currentLineTime = lrcLine.time;
+        //下一个模型的时间
+        NSString *nextLineTime = nil;
+        NSInteger nextIdx = idx + 1;
+        if(nextIdx < self.lrcLines.count)
+        {
+            YZLrcLine *nextLine = self.lrcLines[nextIdx];
+            nextLineTime = nextLine.time;
+        }
+        
+        //判断是否为 正在 播放的歌词
+        //（当前时间>=当前模型时间）&&（当前时间<下一模型时间）
+        if(([currentTimeStr compare:currentLineTime] != NSOrderedAscending) && ([currentTimeStr compare:nextLineTime] == NSOrderedAscending) && self.currentIndex != idx)
+        {
+            
+            NSArray *reloadRows = @[
+                                    [NSIndexPath indexPathForRow:self.currentIndex inSection:0],
+                                    [NSIndexPath indexPathForRow:idx inSection:0]
+                                    ];
+            
+            self.currentIndex = idx;
+            
+            [self.tableView reloadRowsAtIndexPaths:reloadRows withRowAnimation:UITableViewRowAnimationNone];
+            
+            //找到idx行号，滚动到对应位置
+            [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:idx inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+            NSLog(@"%d",idx);
+            *stop = YES;
+        }
+    }];
+    
 }
 
 #pragma mark - delegate
@@ -139,23 +189,15 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *ID = @"lrc";
+    YZLrcTableViewCell *cell = [YZLrcTableViewCell cellWithTableView:tableView];
     
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    if(cell == nil)
+    cell.line = self.lrcLines[indexPath.row];
+    if(self.currentIndex == indexPath.row)
     {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
-        cell.backgroundColor = [UIColor clearColor];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;//cell选中没反应
-        cell.textLabel.textColor = [UIColor whiteColor];
-        cell.textLabel.backgroundColor = [UIColor redColor];//cell的label就是显示的那么大，因此，居中不管用
-        cell.textAlignment = NSTextAlignmentCenter;
+        cell.textLabel.font = [UIFont boldSystemFontOfSize:19];
+    }else{
+        cell.textLabel.font = [UIFont systemFontOfSize:15];
     }
-    
-    YZLrcLine *line = self.lrcLines[indexPath.row];
-    
-    cell.textLabel.text = line.word;
     return cell;
 }
 

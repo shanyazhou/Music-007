@@ -39,7 +39,7 @@
 - (void)setMusic:(YZMusic *)music
 {
 #warning 不懂
-//    _music = music;这个写不写的作用是？？？貌似不写也没事
+    _music = music;//得写  （这个写不写的作用是？？？貌似不写也没事）
     
     self.textLabel.text = music.name;
     self.detailTextLabel.text = music.singer;
