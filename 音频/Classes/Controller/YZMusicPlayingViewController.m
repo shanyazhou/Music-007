@@ -12,6 +12,7 @@
 #import "YZMusicTool.h"
 #import "YZAudioTool.h"
 #import "YZLrcView.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 @interface YZMusicPlayingViewController ()<AVAudioPlayerDelegate,AVAudioSessionDelegate>
 
@@ -52,6 +53,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.currentTimeView.layer.cornerRadius = 10;
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+}
+
+- (void)dealloc
+{
+    NSLog(@"dealloc---YZMusicPlayingViewController");
 }
 
 - (void)show
@@ -133,6 +144,34 @@
     //加载歌词
     self.lrcView.lrcname = self.playingMusic.lrcname;
     
+    //添加锁屏信息
+    [self updateLockScreenMusic];
+    
+}
+
+//添加锁屏信息
+- (void)updateLockScreenMusic
+{
+    MPNowPlayingInfoCenter *center = [MPNowPlayingInfoCenter defaultCenter];
+    
+    NSMutableDictionary *info = [NSMutableDictionary dictionary];
+    //歌曲名字
+    info[MPMediaItemPropertyTitle] = self.playingMusic.name;
+    
+    //歌手名字
+    info[MPMediaItemPropertyArtist] = self.playingMusic.singer;
+    
+    //图片
+    info[MPMediaItemPropertyArtwork] = [[MPMediaItemArtwork alloc] initWithImage:[UIImage imageNamed:self.playingMusic.icon]];
+    center.nowPlayingInfo = info;
+    
+    //开始监听远程事件：
+    [self becomeFirstResponder];
+    //2开始监控
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    
+    //1成为第一响应者
+    [self becomeFirstResponder];
 }
 
 //时间的长度 转成 时间字符串
@@ -369,5 +408,49 @@
     {
         [self playOrPause];
     }
+}
+
+#pragma mark - 监听远程事件
+- (BOOL)canBecomeFirstResponder
+{
+    return YES;
+}
+
+- (void)remoteControlReceivedWithEvent:(UIEvent *)event
+{
+    //event.type;//事件类型：就三种
+//    UIEventSubtypeRemoteControlPlay                 = 100,
+//    UIEventSubtypeRemoteControlPause                = 101,
+//    UIEventSubtypeRemoteControlStop                 = 102,
+//    UIEventSubtypeRemoteControlTogglePlayPause      = 103,
+//    UIEventSubtypeRemoteControlNextTrack            = 104,
+//    UIEventSubtypeRemoteControlPreviousTrack        = 105,
+//    UIEventSubtypeRemoteControlBeginSeekingBackward = 106,
+//    UIEventSubtypeRemoteControlEndSeekingBackward   = 107,
+//    UIEventSubtypeRemoteControlBeginSeekingForward  = 108,
+//    UIEventSubtypeRemoteControlEndSeekingForward    = 109,
+    
+    if(event.type == UIEventTypeRemoteControl){
+        switch (event.subtype) {//具体类型
+            case UIEventSubtypeRemoteControlPlay:
+            case UIEventSubtypeRemoteControlPause:
+                [self playOrPause];
+                break;
+            case UIEventSubtypeRemoteControlStop:
+                [self playOrPause];
+                break;
+            case UIEventSubtypeRemoteControlNextTrack:
+                [self nextMusic:nil];
+                break;
+            case UIEventSubtypeRemoteControlPreviousTrack:
+                [self previousMusic:nil];
+                break;
+                
+            default:
+                break;
+        }
+    }
+    
+    
 }
 @end
